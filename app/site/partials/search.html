@@ -1,0 +1,202 @@
+<html>
+   <script type="text/javascript" src="../../assets/js/jquery-3.2.1.slim.js"></script>
+   <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+   <head>
+      <title>Blast Lost Astronaut Search Tool</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href='../../assets/css/styles.css'>
+      <link rel="stylesheet" type="text/css" href='../../assets/css/reset.css'>
+      <link rel="stylesheet" type="text/css" href='../../assets/css/typography.css'>
+   </head>
+   <body>
+      <div class='content'>
+      <div class="add-link">
+         <a ng-click='ctrl.goToAdd()'>
+            <img src="../../assets/img/add-link.png">
+         </a>
+      </div>
+      <div class='content-container horizontal-centre'>
+         <div class="header">
+               <div class="username-container vertical-align">
+                  <ul class="username horizontal-centre">
+                     <li>
+                        <span >Wa gwan&#44&nbsp{{ctrl.username}} | </span>
+                     </li>
+                     <li>
+                        <a ng-click='ctrl.logout()' class="">Logout</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         <div class="logo-container">
+            <img id='add-search-logo' class="horizontal-centre" src='../../assets/img/mobile-logo.png'>
+         </div>
+         <div class="search-container horizontal-centre">
+            <form class="">
+               <ul class="search-ul horizontal-centre">
+                  <li class="">
+                     <input ng-keypress='ctrl.searchAstronauts()' placeholder="Search" ng-model='ctrl.search[ctrl.select.field]' class="horizontal-centre search-bx search-form-element" type="text" name="">
+                  </li>
+                  <li>
+                     <select id='search-select'  ng-init="ctrl.select = ctrl.selectOptions[0]" class="search-form-element" ng-options='option.label for option in ctrl.selectOptions'  required ng-model='ctrl.select'>
+                     </select>
+                     <button ng-click='ctrl.clearSearch(ctrl.selectOptions.field)'>Clear</button>
+                  </li>
+               </ul>
+            </form>
+         </div>
+         <div>
+            <!-- email divs -->
+            <ul class="email-forms-ul">
+               <li class="container-li">
+                  <div id='email-astros-div' class="collapse-link collapse email-astros-div">
+                     <div class="email-list-title">
+                        <a class="collapse-link" data-target='#email-astros-div, #email-list-div' data-toggle='collapse'>Who am I emailing?</a> 	
+                     </div>
+                     <div id='email-list-div' class="horizontal-centre email-list-div">
+                        <ul id='emailUl' class="email-ul search-ul horizontal-centre">
+                           
+<!--                               <img class="email-pic" src="../../assets/img/default-link-mobile.png"> -->
+							<display-picture>
+                        <remove-picture></remove-picture>              
+                     </display-picture>
+                          
+                        </ul>
+	     <!-- 	 -->
+                     </div>
+                  </div>
+               </li>
+               <li class="container-li email-container ">
+                  <div id='email-frm-container' class="email-astros-form horizontal-centre">
+                     <div class="email-form-title">
+                        <a class="collapse-link" aria-expanded="false" aria-controls="email-form-div-container" data-toggle='collapse' data-target='#email-form-div-container'>Email Astronauts</a>
+                     </div>
+                     <div id="email-form-div-container" class='email-form-div'>
+                        <form enctype="multipart/form-data" class="email-form">
+                           <ul class="search-ul horizontal-centre">
+                              <li class="">
+                                 <input class="search-form-element" ng-model='ctrl.toInput' placeholder="To" type="text" name="">
+                              </li>
+                              <li>
+                                 <input ng-model='ctrl.fromInput' class="search-form-element" placeholder="From" type="text" name="">
+                              </li>
+                              <li>
+                                 <textarea ng-model='ctrl.messageText' placeholder="Message" class="search-textarea"></textarea>
+                              </li>
+                              <li>
+                                 <button id="email-btn" ng-click='ctrl.emailAstros()'>Send</button>
+                              </li>
+                           </ul>
+                        </form>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+            <!--              -->
+            <div id='results-container-div' class="results-container horizontal-centre">
+               <div class="results-container-bg horizontal-centre">
+                  <div ng-repeat='($index, astronaut) in ctrl.astronauts | orderBy:selectOptions.field | filter: ctrl.search'>
+
+	                  <div class="results-container-title">
+	                     <ul class="results-ul" search-ul horizontal-centre">
+	                        <li class="li-centre pic-li">
+	                           <!-- <img class="profile-pic" ng-src='{{astronaut.picture.data.data}}'> -->
+	                           <buffer-to-img></buffer-to-img>
+	                        </li>
+	                        <li class="less-link-li result-li">
+	                           <a ng-click='ctrl.lessMaie()' class="collapse-link" aria-expanded="false" aria-controls="search-results{{$index}}" data-target='#search-results{{$index}}' data-toggle='collapse'>Less</a><label>
+	                          <!--  <button ng-click="displayPicture()"></button> -->
+	                           <input class="email-chkbx" type="checkbox" ng-model="ctrl.checkBoxes[$index].value" ng-true-value='"display"' ng-false-value='"remove"' ng-change="displayPicture($index, ctrl.checkBoxes[$index].value)">Email{{}}
+	                           </label>
+	                        </li>
+	                        <li class="result-li">
+	                        </li>
+	                     </ul>
+	                  </div>
+	                  <div id="search-results{{$index}}" class="horizontal-centre search-results-div">
+	                     <ul class="results-ul search-ul horizontal-centre">
+	                        <li>
+	                           <h4>{{astronaut.name}}&nbsp-&nbsp{{astronaut.sex}}</h4>
+	                        </li>
+	                        <li>
+	                           <span>{{astronaut.addressOne}},&nbsp{{astronaut.addressTwo}},&nbsp{{astronaut.city}},&nbsp{{astronaut.province}} </span>
+	                        </li>
+	                     </ul>
+	                     <ul class="results-ul search-ul horizontal-centre">
+	                        <li>
+	                           <h4>Notes</h4>
+	                           <p>{{astronaut.notes}}</p>
+	                        </li>
+	                     </ul>
+	                     <ul class="results-ul search-ul horizontal-centre">
+	                        <li>
+	                           <h4>Pay Info</h4>
+	                           <p>{{astronaut.payInfo}}</p>
+	                        </li>
+	                     </ul>
+	                     <ul class="results-ul search-ul horizontal-centre">
+	                        <lo>
+	                           <h4>Special Certification</h4>
+	                           <p>{{astronaut.certifications}}</p>
+	                        </lo>
+	                     </ul>
+	                  </div>
+
+                  </div>
+
+<!--                   <div class="results-container-title">
+                     <ul class="results-ul" search-ul horizontal-centre">
+                        <li class="li-centre pic-li">
+                           <img src='..\assets\img\default-link-mobile.png'>
+                        </li>
+                        <li class="less-link-li result-li">
+                           <a class="collapse-link" aria-expanded="false" aria-controls="search-results2" data-target='#search-results2' data-toggle='collapse'>Less</a><label>
+                           <input class="email-chkbx" type="checkbox" name="">Email
+                           </label>
+                        </li>
+                        <li class="result-li">
+                        </li>
+                     </ul>
+                  </div>
+                  <div id="search-results2" class="horizontal-centre search-results-div">
+                     								<span>Mike Jord</span><span>-Male</span>
+                        <span>1234 Here Street, Toronto, ON 1o1o1o</span>
+                        <h6>Note</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus urna sit amet dolor tempus rutrum. Vestibulum sit amet tincidunt justo, nec faucibus tortor.</p>
+                        <h5>Pay Info</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus urna sit amet dolor tempus rutrum. Vestibulum sit amet tincidunt justo, nec faucibus tortor.</p>
+                        <h5>Certifications</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus urna sit amet dolor tempus rutrum. Vestibulum sit amet tincidunt justo, nec faucibus tortor.</p>
+                     <ul class="results-ul search-ul horizontal-centre">
+                        <li>
+                           <h4>Mike Jord - Male</h4>
+                        </li>
+                        <li>
+                           <p>1234 Here Street, Toronto, ON M4I1O1</p>
+                        </li>
+                     </ul>
+                     <ul class="results-ul search-ul horizontal-centre">
+                        <li>
+                           <h4>Notes</h4>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus urna sit amet dolor tempus rutrum. Vestibulum sit amet tincidunt justo, nec faucibus tortor.</p>
+                        </li>
+                     </ul>
+                     <ul class="results-ul search-ul horizontal-centre">
+                        <li>
+                           <h4>Pay Info</h4>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus urna sit amet dolor tempus rutrum. Vestibulum sit amet tincidunt justo, nec faucibus tortor.</p>
+                        </li>
+                     </ul>
+                     <ul class="results-ul search-ul horizontal-centre">
+                        <lo>
+                           <h4>Special Certification</h4>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus urna sit amet dolor tempus rutrum. Vestibulum sit amet tincidunt justo, nec faucibus tortor. </p>
+                        </lo>
+                     </ul>
+                  </div> -->
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

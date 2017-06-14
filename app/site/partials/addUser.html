@@ -1,0 +1,43 @@
+<html>
+	
+	<head>
+		<title>Blast Lost Astronaut Search Tool</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href='../../assets/css/styles.css'>
+		<link rel="stylesheet" type="text/css" href='../../assets/css/typography.css'>
+		<link rel="stylesheet" type="text/css" href='../../assets/css/reset.css'>
+		<link rel="stylesheet" type="text/css" href='../../assets/css/typography.css'>
+
+	</head>
+	<body>
+		<div class='content'>
+			<div class='content-container horizontal-centre vertical-align'>
+				<div class="logo-container">
+					<img class="horizontal-centre" src='../../assets/img/default-logo.png'>
+				</div>
+				<div class="login-form-div horizontal-centre">
+					<form>
+						<ul class="form-ul horizontal-centre">
+							<li>
+								<input ng-model='ctrl.name' type='text' name='name' class='mobile-input' placeholder="name">
+								{{ctrl.name}}
+							</li>
+							<li>
+								<input ng-model='ctrl.userName' type='text' name='username' class='mobile-input' placeholder="username">
+								{{ctrl.userName}}
+							</li>
+							<li>
+								<input type="password" ng-model='ctrl.password' name="password" class="mobile-input" placeholder="password">
+								{{ctrl.password}}
+							</li>
+						</ul>
+						<ul class="form2-ul">
+							<li>
+								<button ng-click='ctrl.createUser()' class="form-button">add User</button>
+							</li>
+						</ul>
+					</form>
+
+				</div>
+			</div>
+		

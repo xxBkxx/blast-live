@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+	<head>
+		<title>Blast Lost Astronaut Search Tool</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+		<link rel="stylesheet" type="text/css" href="assets/css/typography.css">
+
+
+		<script type="text/javascript" src='assets/js/jquery-3.2.1.slim.js'></script>
+		
+	<!-- 	<script type="text/javascript" src='assets/js/jquery.sticky.js'></script> -->
+	
+		<script type="text/javascript" src="assets/js/angular.min.js" ></script>
+		<script type="text/javascript" src="assets/js/angular-route.js" ></script>
+		<script type="text/javascript" src="assets/js/angular-jwt.js" ></script>
+		<script type="text/javascript" src="assets/js/angular-messages.js"></script>
+
+		<script type="text/javascript" src='app.js'></script>
+
+
+		<script type="text/javascript" src="site/controllers/choice.ctrl.js" ></script>
+		<script type="text/javascript" src="site/controllers/rejection.ctrl.js" ></script>
+		<script type="text/javascript" src="site/controllers/login.ctrl.js" ></script>
+		<script type="text/javascript" src="site/controllers/add.ctrl.js" ></script>
+		<script type="text/javascript" src="site/controllers/search.ctrl.js" ></script>
+		<script type="text/javascript" src="site/controllers/addUser.ctrl.js" ></script>
+
+
+
+		<script type="text/javascript" src="site/directives/upload.dir.js"></script>
+		<script type="text/javascript" src="site/directives/bufferToImg.dir.js"></script>
+		<script type="text/javascript" src="site/directives/displayPicture.dir.js"></script>
+		<script type="text/javascript" src="site/directives/loginFailed.dir.js"></script>
+
+		<script type="text/javascript" src="site/services/api.srv.js" ></script>
+		<script type="text/javascript" src="site/services/img.srv.js" ></script>
+		<script type="text/javascript" src="site/services/astronaut.srv.js" ></script>
+		<script type="text/javascript" src="site/services/email.srv.js" ></script>
+		<script type="text/javascript" src="site/services/auth.srv.js" ></script>		
+	</head>
+	<body ng-app='blastApp'>
+		<div ng-view class="content"></div>
+	</body>
+</html>

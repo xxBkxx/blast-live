@@ -1,0 +1,23 @@
+{
+  "name": "blast",
+  "version": "1.0.0",
+  "description": "blast database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular-jwt": "^0.1.9",
+    "angular-route": "^1.6.4",
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jsonwebtoken": "^7.4.1",
+    "mongodb": "^2.2.26",
+    "mongoose": "^4.9.9",
+    "multer": "^1.3.0",
+    "nodemailer": "^4.0.1"
+  }
+}

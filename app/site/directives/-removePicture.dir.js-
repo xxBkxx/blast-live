@@ -1,0 +1,15 @@
+angular
+	.module('blastApp')
+	.directive('removePicture',  function(astronautSrv){
+
+		function link(scope,element, attrs ){
+				
+
+				scope.removePicture = function(index){
+
+				}
+
+
+		}
+
+	});

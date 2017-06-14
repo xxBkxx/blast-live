@@ -1,0 +1,71 @@
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: black;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: black;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: black;
+}
+
+/*input{
+
+}*/
+
+body, a{
+	font: 14px/1.375em arial, verdana, sans-serif;
+	color: white;
+}
+
+@media(min-width: 320px) and (max-width: 768px){
+
+/*	a{
+		font:;
+	}*/
+
+	h1{
+		font:2em/1.25em arial, verdana, sans-;
+	}
+	h2{
+		font:1.625em/1.25em arial, verdana, sans-;
+	}
+	h3{
+		font:1.375em/1.25em arial, verdana, sans-;
+	}
+
+	h4{
+		font:1.125em/1.22222222em arial, verdana, sans-;
+	}
+}
+
+@media(min-width: 769px){
+	h1{
+		font:3em/1.05em arial, verdana, sans-;
+
+	}
+	h2{
+		font:2.25em/1.25em arial, verdana, sans-;
+	}
+	h3{
+		font:1.75em/1.25em arial, verdana, sans-;
+	}
+
+	h4{
+		font:1.25em/1.22222222em arial, verdana, sans-;
+	}
+
+	.message-container h4{
+		font-weight: bold;
+	}
+
+	input.search-bx{
+		font-size:3em;
+	}
+	
+	.username{
+		font:3em;
+	}
+}
