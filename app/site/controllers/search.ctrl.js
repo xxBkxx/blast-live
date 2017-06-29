@@ -3,25 +3,38 @@
 		.module('blastApp')
 		.controller('SearchController', SearchController);
 
-		function SearchController(initAstronauts, authSrv, $scope, emailSrv, $location, username){
+		function SearchController($window,initAstronauts, $timeout, authSrv, $scope, emailSrv, $location, username, $rootScope){
+			
+			// Set the background
+			$('body').css('background-image','url("../assets/img/search-bg.jpg")');
+			$('body').css('background-position', 'center');
 
+			// Check for the login token
+			var token = localStorage.getItem('authToken');
+			authSrv.isLoggedIn(token);
+
+			// Set Properties
 			this.astronauts 	  = initAstronauts;
-			// this.displayPicture = displayPicture;
+			// this.displayPicture= displayPicture;
 			// this.arrayBufferToBase64 = arrayBufferToBase64;
-			// this.updateData       = updateData;
+			// this.updateData    = updateData;
 			this.emailAstros 	  = emailAstros;
 			this.searchAstronauts = searchAstronauts;
 			this.clearSearch      = clearSearch;
-			this.removePic		  = removePic;
+			// this.removePic		  = removePic;
 			this.goToAdd		  = goToAdd;
 			this.username		  = username;
 			this.logout			  = logout;
+			this.toLoginPage	  = toLoginPage;
 			// this.authSrv		  = authSrv;
 
 			var astros = this.astronauts
-			var formData = new FormData();
+			
 
-			console.log(this.astronauts);
+			// console.log(this.astronauts);
+
+			// handle token on browser close
+			// $window.onbeforeunload = authSrv.deleteTokenOnBrowserClose;
 			
 			this.selectOptions = [
 
@@ -35,7 +48,7 @@
 			 	// {values: ["name","sex","city","province", "notes", "payInfo","certifications"]}
 			]
 
-			this.isChecked ={
+			this.isChecked = {
 				value: false
 			};
 
@@ -43,14 +56,18 @@
 
 			this.checked = function(index){
 				this.isChecked.value = false;
-				console.log("checkbox " + index + " is " + this.checkBoxes[index]);
+				// console.log("checkbox " + index + " is " + this.checkBoxes[index]);
 			}
 
 			// ctrl.select.option = this.selectOptions[0].field;
 
+			function toLoginPage(){
+				$location.url('/login');
+			}
+
 			function goToAdd(){
 				$location.url('/add');
-				console.log('here');
+				// console.log('here');
 			}
 
 			function clearSearch(field){
@@ -63,6 +80,8 @@
 			this.search.notes = '';
 			this.search.payInfo = '';
 			this.search.certifications = '';
+			this.toInput = '';
+			this.messageText = '';
 			// this.search[field];
 			// console.log(field);
 
@@ -100,12 +119,12 @@
 				// }
 			}
 
-			function removePic(){
-				console.log(angular.element(this));
-			}
+			// function removePic(){
+			// 	console.log(angular.element(this));
+			// }
 
 			function emailAstros(){
-
+				var formData = new FormData();
 				var fileToEmail='';
 				var nameToEmail='';
 				var children = '';
@@ -125,7 +144,7 @@
 				// ##################
 				$("#emailUl").children().children().children().each(function(index){
 
-					console.log($(this));
+					// console.log($(this));
 					children = $(this);
 
 					if (children.is('img') ){
@@ -140,7 +159,7 @@
 
 					} else if (children.is('.astro-name')){
 						nameToEmail = children.text();
-						console.log(nameToEmail);
+						// console.log(nameToEmail);
 					}
 
 					if(fileToEmail && nameToEmail){
@@ -161,6 +180,29 @@
 				// console.log(attachment[0]);
 				// formData.append('attachment', attachment);
 				emailSrv.sendMail(formData);
+
+					$( '.load-text' )
+					.css( 'visibility', 'visible' );
+
+				$timeout(function(){
+					$( '.load-text' )
+					.css( 'visibility', 'hidden' );
+				},2000);
+
+					// $( '.load-text' )
+					// .css( 'visibility', 'hidden' );
+
+
+				// $rootScope.$on("httpResponse", function(event, args){
+				
+
+				// console.log("event %s", event);
+				// console.log("args %s", args);
+
+				// $( '.load-pic' )
+				// 	.css( 'visibility', 'hidden' );
+
+				// })
 			}			
 
 			// var binary ='';

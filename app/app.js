@@ -8,9 +8,9 @@ angular
 	.config(configBlock); 
 
 
-	configBlock.$inject = ['$routeProvider', '$httpProvider'];
+	configBlock.$inject = ['$routeProvider', '$httpProvider', "$locationProvider"];
 
-	function configBlock($routeProvider, $httpProvider){
+	function configBlock($routeProvider, $httpProvider, $locationProvider){
 
 		$routeProvider
 			.when('/login',{
@@ -45,9 +45,19 @@ angular
 				}
 			})
 
-			.when('/forgotEmail',{
-				templateUrl: "site/partials/forgotEmail.html"
-				// controller:  ""
+			.when('/sentConfirmation',{
+				templateUrl: "site/partials/sentConfirmation.html",
+				controller: "SentConfirmationController as ctrl"
+			})
+
+			// .when('/setToken',{
+			// 	// $httpProvider.default.headers
+			// 	// redirectTo: '/setPassword'
+			// })
+
+			.when('/setPassword/:token',{
+				templateUrl: "site/partials/newPassword.html",
+				controller:  "NewPasswordController as ctrl"
 			})
 
 			.when('/confirmation',{
@@ -56,17 +66,12 @@ angular
 			})
 
 			.when('/enterEmail',{
-				templateUrl: "site/partials/enterEmail.html"
-				// controller:  ""
+				templateUrl: "site/partials/enterEmail.html",
+				controller:  "EnterEmailController as ctrl"
 			})
 
 			.when('/rejection',{
 				templateUrl: "site/partials/rejection.html"
-				// controller:  ""
-			})
-
-			.when('/newPassword',{
-				templateUrl: "site/partials/newPassword.html"
 				// controller:  ""
 			})
 
@@ -82,19 +87,29 @@ angular
 
 						initAstronauts: function(astronautSrv){
 							astronauts = astronautSrv.initAstronauts();
-							console.log(astronauts.$$state);
+							// console.log(astronauts.$$state);
 						return astronautSrv.initAstronauts();
 					}
 				}
 			})
+
 			
 			// .when('/uploads',{
 			// 	templateUrl: "<p></p>"
 			// })
 
 			.otherwise({
-				redirectTo: "/home"
+				redirectTo: "/login"
 			});
+
+			// $locationProvider
+			// 	.html5Mode({
+			// 		enabled: false,
+			// 		requireBase: false,
+			// 		rewriteLinks: true
+			// });
+
+			// console.log()
 
 			$httpProvider.interceptors.push(function($q, jwtHelper, $rootScope){
 
@@ -110,8 +125,10 @@ angular
 					},
 
 					responseError: function(rejection){
+						console.log(rejection); 
 						if (rejection.status === 401){
-							console.log(rejection);
+							// console.log(rejection);
+							
 							$rootScope.$broadcast('httpResponse', rejection);
 							return $q.reject(rejection);
 						}
@@ -126,10 +143,13 @@ angular
 						var authToken = response.headers('authentication');
 						// console.log(response);
 
-
+						// console.log(response.status);
 						// This was for a listener on login.ctrl
 						// if(response.status === 200){
+
+						// 	// console.log(response.status);
 						// 	$rootScope.$broadcast('success', response);
+						// 	return $q.resolve(response);
 						// }
 
 						if (authToken){

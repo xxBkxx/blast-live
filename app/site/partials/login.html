@@ -1,4 +1,4 @@
-		<div class='content'>
+f		<div class='content'>
 			<div class='content-container horizontal-centre vertical-align'>
 
 				<div class="logo-container">
@@ -6,37 +6,48 @@
 				</div>
 
 				<div class="login-form-div horizontal-centre">
-
 					<form name='myForm'>
 						<ul class="form-ul horizontal-centre">
 							<li>
 								<login-failed></login-failed>
+								{{myForm.myField.$error.pattern}}
+								<div ng-show='myForm.myField.$dirty' ng-messages-multiple ng-messages='myForm.myField.$error'>
+									<div ng-message="pattern"><p>The only special characters allowed are: ! ( ) - . _ ~ @ # `</p></div>
+									<div ng-message="required"><p>You gotta insert your user name brah. This field is required.</p></div>
+									<div ng-message="email"><p>That is not a username. I can't give you hints here.</p></div>
+									<div ng-message="minlength"><p>That name is way too short.</p></div>
+									<div ng-message="maxlength"><p>That name is way too long.</p></div>
+
+								</div>
 							</li>
 							<li>
+
 								<input type='email' name='myField' class='mobile-input' placeholder="username"
-									ng-focus='ctrl.removeMessage()'
 									ng-model='ctrl.userName'
+									ng-focus='ctrl.removeMessage()'
 									ng-minlength='2'
 									ng-maxlength='50'
+									ng-pattern="loginRegex" 
 									required />
-								{{myForm.myField.$dirty}}{{myForm.myField.$error}}
-								<div ng-messages='myForm.myField.$error && myForm.myField.$dirty'>
-									<div ng-message="required">You gotta insert your user name brah.</div>
-									<div ng-message="email">That does not look like a username to me.</div>
-									<div ng-message="minlength">That name is way too short.</div>
-									<div ng-message="maxlength">That name is way too long.</div>
-								</div>
+
 								<!-- {{ctrl.userName}} -->
 							</li>
 							<li>
 
-								<input type="password" ng-model='ctrl.password' name="password" class="mobile-input" placeholder="password">
-								<!-- {{ctrl.password}} -->
+								<input type="password" ng-model='ctrl.password' name="password" class="mobile-input" placeholder="password"
+								ng-minlength='8'
+								ng-maxlength='100'
+								>
 
+								<div ng-show='myForm.password.$dirty' ng-messages-multiple ng-messages='myForm.password.$error'>
+									<div ng-message='minlength'>Not enough characters</div>
+									<div ng-message='maxlength'>Too many characters</div>
+								</div>
+								<!-- {{ctrl.password}} -->
 							</li>
 						</ul>
 						<ul class="form2-ul">
-							<li class="load-pic-li"><img class="load-pic" height="30px" width="30px" src="../../assets/img/loadingGif.gif">
+							<li class="load-pic-li"><img class="load-pic" height="30px" width="30px" src="../../assets/img/loadingGif.gif"></li>
 		<!-- 					<li>
 								<label>
 									<input type="checkbox" name="remember">Remember Me
@@ -47,8 +58,7 @@
 							</li>
 						</ul>
 					</form>
-
 				</div>
-				<div class='forgot-link'><a href="#">Forgot My Password</a></div>
+				<div class='forgot-link'><a ng-click='ctrl.toEnterEmail()'>Forgot My Password</a></div>
 			</div>
 		

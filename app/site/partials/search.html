@@ -1,22 +1,18 @@
-<html>
-   <script type="text/javascript" src="../../assets/js/jquery-3.2.1.slim.js"></script>
-   <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
-   <head>
-      <title>Blast Lost Astronaut Search Tool</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href='../../assets/css/styles.css'>
-      <link rel="stylesheet" type="text/css" href='../../assets/css/reset.css'>
-      <link rel="stylesheet" type="text/css" href='../../assets/css/typography.css'>
-   </head>
-   <body>
       <div class='content'>
+        <div class="login-message">
+            <p class="vertical-align horizontal-centre">
+               <a ng-click="ctrl.toLoginPage()" class="signup-link">Please login</a>
+            </p>
+        </div> 
       <div class="add-link">
          <a ng-click='ctrl.goToAdd()'>
             <img src="../../assets/img/add-link.png">
          </a>
       </div>
       <div class='content-container horizontal-centre'>
+        
          <div class="header">
+
                <div class="username-container vertical-align">
                   <ul class="username horizontal-centre">
                      <li>
@@ -77,12 +73,11 @@
                               <li class="">
                                  <input class="search-form-element" ng-model='ctrl.toInput' placeholder="To" type="text" name="">
                               </li>
-                              <li>
-                                 <input ng-model='ctrl.fromInput' class="search-form-element" placeholder="From" type="text" name="">
-                              </li>
+
                               <li>
                                  <textarea ng-model='ctrl.messageText' placeholder="Message" class="search-textarea"></textarea>
                               </li>
+                       <li class="load-text"><p>Sent</p></li>
                               <li>
                                  <button id="email-btn" ng-click='ctrl.emailAstros()'>Send</button>
                               </li>
@@ -198,5 +193,3 @@
             </div>
          </div>
       </div>
-   </body>
-</html>

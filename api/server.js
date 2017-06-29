@@ -8,15 +8,22 @@ var astronaut_routes = require("./routes/astronaut_routes");
 var email_routes     = require('./routes/email_routes');
 var auth_routes 	 = require('./routes/auth_routes');
 var user_routes 	 = require('./routes/user_routes');
+var forgot_routes    = require('./routes/forgot_routes');
+var new_password 	 = require('./routes/newpassword_routes')
+// var anonymous_routes = require('./routes/anonymous_routes')
 
 app.use("/", astronaut_routes);
 app.use("/", email_routes);
 app.use("/", auth_routes);
 app.use("/", user_routes);
+app.use('/', forgot_routes);
+app.use('/', new_password);
+// app.use('/', authentication, anonymous_routes)
 
-var port 	 = process.env.PORT || 8080;
-app.use(express.static(__dirname + './../app/'));
-
+// console.log(__dirname + "/../app/");
+var port = process.env.PORT || 8080;
+app.use(express.static(__dirname + './../app', {redirect: true}));
+	
 if (port = 8080){
 
 	app.listen(8080, function(){

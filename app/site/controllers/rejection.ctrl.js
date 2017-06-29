@@ -5,7 +5,6 @@
 		.controller('RejectionController', RejectionController);
 
 		function RejectionController(){
-			this.greeting = 'hello';
-				
+			this.greeting = 'hello';				
 		}
 })();

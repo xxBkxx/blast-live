@@ -13,6 +13,8 @@ router.post('/login' , upload.any(), function(req, res, next){
 	var pw 		 = req.body.password;
 	var userName = req.body.userName;
 
+	console.log(req.body);
+
 	// console.log(userName);
 
 	users.findOne({"email": userName}, function(err, user){

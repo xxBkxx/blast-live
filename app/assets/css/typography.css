@@ -17,7 +17,7 @@
 
 body, a{
 	font: 14px/1.375em arial, verdana, sans-serif;
-	color: white;
+	/*color: black;*/
 }
 
 @media(min-width: 320px) and (max-width: 768px){

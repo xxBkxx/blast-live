@@ -2,7 +2,7 @@
 	"TYPE":				  "OAUTH2",
 	"SCOPE":			  "https://mail.google.com/",
 	"PORT":				  "465",
-	"USER":				  "bkdixxon@gmail.com",
+	"USER":				  "blastmailer@gmail.com",
 	"PASS":				  "Tmgpw0418#",
 	"GRANT_TYPE":		  "refresh_token",
 	"SERVICE_CLIENT":     "466738665859-sgs6ruq0k75p5p6a6v00866i8ipgl4m3.apps.googleusercontent.com",

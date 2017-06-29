@@ -3,6 +3,50 @@
 	text-decoration: underline;
 }*/
 
+body{
+	color:black;
+}
+
+.failed-message{
+	color:red;
+}
+
+.login-message{
+	display: none;
+	top:-10px;
+	width: 100%;
+	height: 110%;
+	color: darkorange;
+	background-color: rgba(0,0,0,0.9);
+	z-index: 100;
+}
+
+.login-message > p ,a{
+
+	font: normal normal normal normal 300px/25px sans-serif;
+	width: 100%;
+	text-align: center;
+
+
+}
+
+.load-text{
+	visibility: hidden;
+}
+
+button{
+	background-color: rgba(0,0,0,0.4);
+	border: 0;
+}
+
+a{
+	color: darkorange;
+}
+
+a:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
 .search-ul input, select{
 		border: none;
 
@@ -45,6 +89,10 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 
 	display: none;
 
+}
+
+.input-errors{
+	color: yellow;
 }
 
 @media(min-width: 320px) and (max-width: 768px){
@@ -470,9 +518,7 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 		padding-top: 20px;
 	}
 
-	.login-message{
-		
-	}
+
 }
 /*#############################################*/
 /*--------------------mobile end---------------*/

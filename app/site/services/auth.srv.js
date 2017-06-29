@@ -5,11 +5,17 @@
 		.service('authSrv', AuthService)
 
 		function AuthService($http, apiSrv, jwtHelper, $location, $timeout){
-			var self        = this;
-			self.login      = login;
-			self.createUser = createUser;
-			self.initUser   = initUser;
-			self.logout 	= logout;
+			var self         = this;
+			self.login       = login;
+			self.createUser  = createUser;
+			self.initUser    = initUser;
+			self.logout 	 = logout;
+			self.isLoggedIn  = isLoggedIn;
+			// self.deleteToken = deleteToken;
+			
+			self.deleteTokenOnBrowserClose = function(){
+				localStorage.removeItem('authToken');
+			};
 
 			function login(credentials){
 				
@@ -27,11 +33,27 @@
 				// apiSrv.request("/login", credentials, "POST");
 			}
 
-			function loginMessage(){
-				
+			function isLoggedIn(token){
+
+				if( token == ''        || 
+					token == undefined || 
+					token == 'guest'   ||
+					token == null ){
+
+					// console.log("is not loggin");
+					$('.login-message').css('display','unset');
+					$('.login-message').css('position','fixed');
+			}
+
+		
+					// $('.login-message').css('top','50%');
+
+
+
 			}
 
 			function logout(){
+				
 				localStorage.removeItem("authToken");
 
 				if ( !localStorage.getItem('authToken' )){
@@ -40,6 +62,7 @@
 			}
 
 			function createUser(user, callback){
+
 				apiSrv.request("/createUser", user, "POST")
 					.then(function(res){
 						callback(res);
@@ -54,13 +77,13 @@
 
 				var token = localStorage.authToken;
 
-				if(token == undefined || token == '' ){
+				if( token == undefined || token == '' ){
 					return
-				} else{
-				var decrypt_token = jwtHelper.decodeToken(token);
-				// console.log(decrypt_token)
-				var username = decrypt_token.name.charAt(0).toUpperCase() + decrypt_token.name.slice(1);
-				// decrypt_token.replace(firstLetter, )
+				}else{
+					var decrypt_token = jwtHelper.decodeToken(token);
+					// console.log(decrypt_token)
+					var username = decrypt_token.name.charAt(0).toUpperCase() + decrypt_token.name.slice(1);
+					// decrypt_token.replace(firstLetter, )
 				return username;
 				}
 			}

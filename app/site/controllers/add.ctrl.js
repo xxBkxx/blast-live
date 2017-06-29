@@ -4,7 +4,7 @@
 		.module('blastApp')
 		.controller('AddController', AddController);
 
-		function AddController(apiSrv, $location, username, authSrv, $scope){
+		function AddController(apiSrv, $location, $window, username, authSrv, $scope){
 
 			this.add         = add;
 			this.goToSearch  = goToSearch;
@@ -12,9 +12,19 @@
 			this.username    = username;
 			this.logout		 = logout;
 			this.authSrv     = authSrv;
+			this.toLoginPage = toLoginPage;
+			// this.deleteTokenOnBrowserClose = deleteTokenOnBrowserClose;
 
+			$('body').css('background-image','url("../assets/img/add-bg.jpg")');
+			$('body').css('background-position', 'center');
 
+			// Check for the login token
+			var token = localStorage.getItem('authToken');
+			// console.log(token);
+			authSrv.isLoggedIn(token);
 
+			// Unload the token on browser exit...
+			// $window.onunload = authSrv.deleteTokenOnBrowserClose;
 
 			// this.imgPreview(imageFile);
 
@@ -23,6 +33,10 @@
 
 			function logout(){
 				authSrv.logout();
+			}
+
+			function toLoginPage(){
+				$location.url('/login');
 			}
 
 			$scope.imgPreview = function(){
@@ -45,7 +59,9 @@
 			}
 
 			function add(){
+
 				var formData = new FormData();
+
 				formData.append('file', this.file);
 				formData.append('name', this.name);
 				formData.append('sex', this.sex);
@@ -57,15 +73,16 @@
 				formData.append('certifications', this.certifications);
 				formData.append('payInfo', this.payInfo);
 
-				console.log(this.name);
+				// console.log(this.name);
 
 				apiSrv.request('/addAstronaut', formData, 'POST')
 				// this.clearFields();
 					.then(function(res){
 						// console.log(res.data);
-						return clearFields();
+						return clearFields(formData);
 				});
-				$('#file').val('');
+
+				
 				this.file = null;
 				this.name = null;
 				this.sex  = null;
@@ -76,10 +93,10 @@
 				this.notes =  null;
 				this.certifications = null;
 				this.payInfo = null;
-				console.log(this.name, this.sex,this.address1);
+				// console.log(this.name, this.sex,this.address1);
 			}	
 
-			function clearFields(){
+			function clearFields(formData){
 			// 	console.log(formData.getAll("name"));
 			// 	var item = "\'p[0]\'";
 			// 	for(var p of formData.keys()){
@@ -88,7 +105,8 @@
 			// 		formData.delete(p);
 
 			// 	}
-
+			
+				$('#file').val('');
 				formData.delete('file');
 				formData.delete('name');
 				formData.delete('sex');
@@ -110,7 +128,7 @@
 				// this.certifications = '';
 				// this.payInfo = '';
 
-				console.log(formData.getAll("name"));
+				// console.log(formData.getAll("name"));
 
 			}	
 		}

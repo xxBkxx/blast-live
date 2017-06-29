@@ -2,10 +2,18 @@
 	angular.module( 'blastApp' )
 		.controller( 'LoginController', LoginController );
 
-	function LoginController( $location, authSrv, $rootScope ) {
-		
-		this.login = login;
+	function LoginController($scope, $location, authSrv, $rootScope, regExSrv ) {
+
+		// set bg
+		$('body').css('background-image','url("../assets/img/add-bg.jpg")');
+		$('body').css('background-position', 'center');
+
+
+		this.login 		   = login;
 		this.removeMessage = removeMessage;
+		this.toEnterEmail  = toEnterEmail;
+		this.regExSrv      = regExSrv;
+		
 		// $('.load-pic').hide()
 		// this.loginFail	 = loginFail;
 		// this.rs = $rootScope;
@@ -14,12 +22,22 @@
 		// 	console.log(event,args);
 		// })
 		// console.log($rootScope);
+		$scope.loginRegex = /[a-z0-9!()-._~@#`]/ig
+		// $scope.getin	  = this.regExSrv.passwordRegEx; 
+
+
 		function removeMessage() {
 
-			$( '.login-message' )
+			// hied messages that there might be
+
+			$( '.failed-message' )
 				.remove();
 			this.userName = '';
 			this.password = '';
+
+			$scope.myForm.$setPristine();
+			$scope.myForm.$setSubmitted();
+
 		}
 
 		function login() {
@@ -30,18 +48,29 @@
 			formData.append( 'userName', this.userName );
 			formData.append( 'password', this.password );
 
+			// console.log(this.password);
+
 			authSrv.login( formData );
 
 			$( '.load-pic' )
 				.css( 'visibility', 'visible' );
+
+			this.showMessage = true;
+
 			$rootScope.$on( 'httpResponse', function( event, args ) {
+				
+				// console.log(event);
 				$( '.load-pic' )
 					.css( 'visibility', 'hidden' );
-				// $location.url('/choice');
-				console.log( 'detected' );
+
+
+			// this.showMessage = false;
 				// console.log(args);
 				// element.append("<p>Username/Password combo wasnt recongnized</p>")
 			} );
+
+			// Show any login error messages that there might be 
+
 			// formData.set('userName', '');
 			// formData.set('password', '');
 			// console.log(formData.get('userName'));
@@ -55,8 +84,11 @@
 			// 	}
 			// };
 		}
-		// function loginFail(args){
-		// 		console.log(args.data.message);
-		// }
+
+		function toEnterEmail(){
+			$location.url('/enterEmail');
+			// emailSrv.
+		}
 	}
+	
 } )();
