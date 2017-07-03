@@ -24,14 +24,12 @@ app.use('/', new_password);
 var port = process.env.PORT || 8080;
 app.use(express.static(__dirname + './../app', {redirect: true}));
 	
-if (port = 8080){
-
-	app.listen(8080, function(){
+	app.listen(port, function(){
 		console.log('Listening on Port 8080');
 		console.log('Press CTRL + C to stop server');
 	});
 
-}
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://127.0.0.1/data/db');
