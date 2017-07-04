@@ -1,5 +1,5 @@
 var router 	     	 = require('express').Router();
-var bcrypt			 = require('bcrypt');
+var bcrypt			 = require('bcryptjs');
 var users			 = require('.././models/users')
 var multer     		 = require('multer');
 var upload			 = multer();
