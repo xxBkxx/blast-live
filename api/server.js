@@ -23,7 +23,7 @@ app.use('/', new_password);
 // console.log(__dirname + "/../app/");
 var port = process.env.PORT || 3000;
 app.use(express.static(__dirname + './../app', {redirect: true}));
-	console.log(port);
+	console.log(10085);
 	app.listen(port, function(){
 		console.log('Listening on Port 3000');
 		console.log('Press CTRL + C to stop server');
