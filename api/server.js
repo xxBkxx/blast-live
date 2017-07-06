@@ -23,7 +23,6 @@ app.use('/', new_password);
 // console.log(__dirname + "/../app/");
 var port = process.env.PORT || 3000;
 app.use(express.static(__dirname + './../app', {redirect: true}));
-	console.log(10085);
 	app.listen(port, function(){
 		console.log('Listening on Port 3000');
 		console.log('Press CTRL + C to stop server');
@@ -32,7 +31,7 @@ app.use(express.static(__dirname + './../app', {redirect: true}));
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('localhost/data/db');
+mongoose.connect('mongodb://root:tmmpw0418@localhost/data/db');
 var db 		 = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection Error:'));
 db.once('open', function(){
