@@ -30,7 +30,7 @@ router.post('/sendForgotMail', upload.any(),  function(req, res, next){
 
 	users.findOne({'email': email}, function(err, user){
 
-	console.log(user);
+	console.log("user %s", user);
 
 	// Error Check
 	if(err){
