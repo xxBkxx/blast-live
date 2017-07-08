@@ -31,7 +31,7 @@ app.use(express.static(__dirname + './../app', {redirect: true}));
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb:root:tmmpw0418@localhost/data/db');
+mongoose.connect('mongodb:localhost/data/db');
 var db 		 = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection Error:'));
 db.once('open', function(){
