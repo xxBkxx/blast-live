@@ -31,7 +31,7 @@ app.use(express.static(__dirname + './../app', {redirect: true}));
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://http://ec2-35-160-189-111.us-west-2.compute.amazonaws.com:27017/dummyDb');
+mongoose.connect('mongodb://ec2-35-160-189-111.us-west-2.compute.amazonaws.com:27017/dummyDb');
 var db 		 = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection Error:'));
 db.once('open', function(){
