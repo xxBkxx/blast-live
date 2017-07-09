@@ -21,16 +21,17 @@ app.use('/', new_password);
 // app.use('/', authentication, anonymous_routes)
 
 // console.log(__dirname + "/../app/");
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 app.use(express.static(__dirname + './../app', {redirect: true}));
 	app.listen(port, function(){
-		console.log('Listening on Port 3000');
+		console.log('Listening on Port 8080');
 		console.log('Press CTRL + C to stop server');
 	});
 
 
 
 mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://ec2-35-160-189-111.us-west-2.compute.amazonaws.com/data/db');
 var db 		 = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection Error:'));
 db.once('open', function(){
