@@ -11,7 +11,7 @@ var multer     		 = require('multer');
 var storage = multer.diskStorage({
 	
 	destination: function(req, file, callback){
-		callback(null, '/uploads/');
+		callback(null, '/../uploads/');
 	},
 
 	filename: function(req, file, callback){
@@ -19,6 +19,7 @@ var storage = multer.diskStorage({
 		var fileExtension = originalName.split('.').slice(-1);
 		var originalName  = originalName.split('.').slice(0,-1).join('.');
 		callback(null, originalName + '-' + Date.now() + '.' + fileExtension);
+
 		// console.log(file)
 	}
 });
@@ -43,7 +44,7 @@ router.get('/initAstronauts', function( req,res ){
 			res.status(400)
 				.json({error:error});
 		} else{
-			console.log(astronaut);
+			// console.log(astronaut);
 			return res.send(astronaut);
 		}
 	});
