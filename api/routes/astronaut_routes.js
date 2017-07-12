@@ -11,7 +11,7 @@ var multer     		 = require('multer');
 var storage = multer.diskStorage({
 	
 	destination: function(req, file, callback){
-		callback(null, '/opt/bitnami/apps/blast-live/api/uploads/');
+		callback(null, __dirname);
 	},
 
 	filename: function(req, file, callback){
