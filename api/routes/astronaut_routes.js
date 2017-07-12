@@ -1,5 +1,6 @@
 var router 	   		 = require('express').Router();
 var astronaut 	 	 = require('.././models/astronaut');
+var fs 		 		 = require('fs');
 // var body   	   		 = require('body-parser');
 // var raw	   		     = body.json();
 // var urlEncodedParser = body.urlencoded({extended: true})
@@ -18,6 +19,7 @@ var storage = multer.diskStorage({
 		var fileExtension = originalName.split('.').slice(-1);
 		var originalName  = originalName.split('.').slice(0,-1).join('.');
 		callback(null, originalName + '-' + Date.now() + '.' + fileExtension);
+		console.log(file)
 	}
 });
 
