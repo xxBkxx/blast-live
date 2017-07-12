@@ -19,7 +19,7 @@ angular
 		var pos = binary.search("app");
 		binary = binary.substring(pos + 4, binary.length);
 
-		// console.log(binary);
+		console.log("bin %s", binary);
 		// scope.image = binary;
 		astronautSrv.getAstronaut(astronaut);
 		// scope.astronaut.picture.data.data.tempImg = binary;
