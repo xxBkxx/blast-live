@@ -50,7 +50,7 @@ router.get('/initAstronauts', function( req,res ){
 })
 
 
-router.post('/addAstronaut', upload.array('photo', 12),  function(req, res){
+router.post('/addAstronaut', upload.array('file', 12),  function(req, res){
 
 	
 	// Command prompt stuff
