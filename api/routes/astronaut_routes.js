@@ -44,7 +44,7 @@ router.get('/initAstronauts', function( req,res ){
 			res.status(400)
 				.json({error:error});
 		} else{
-			// console.log(astronaut);
+			console.log(astronaut);
 			return res.send(astronaut);
 		}
 	});
