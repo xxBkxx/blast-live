@@ -11,7 +11,7 @@ var multer     		 = require('multer');
 var storage = multer.diskStorage({
 	
 	destination: function(req, file, callback){
-		callback(null, './../app/assets/img/');
+		callback(null, './uploads');
 	},
 
 	filename: function(req, file, callback){
@@ -19,7 +19,7 @@ var storage = multer.diskStorage({
 		var fileExtension = originalName.split('.').slice(-1);
 		var originalName  = originalName.split('.').slice(0,-1).join('.');
 		callback(null, originalName + '-' + Date.now() + '.' + fileExtension);
-		console.log(file)
+		// console.log(file)
 	}
 });
 
@@ -50,7 +50,7 @@ router.get('/initAstronauts', function( req,res ){
 })
 
 
-router.post('/addAstronaut', upload.array('file', 12),  function(req, res){
+router.post('/addAstronaut', upload.array('photo', 12),  function(req, res){
 
 	
 	// Command prompt stuff
