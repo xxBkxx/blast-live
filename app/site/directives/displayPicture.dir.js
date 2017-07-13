@@ -39,10 +39,11 @@ angular
 				for (var j = 0; j < len; j++){
 					binary +=  String.fromCharCode(bytes[j]);
 				}
-					var pos = binary.search("app");
-					binary = binary.substring(pos + 4, binary.length);
+					var pos = binary.search("blast-live");
+					binary = binary.substring(pos + 15, binary.length);
 					var assetPos = emailSrc.search("assets");
 					if(emailSrc.search(re) != -1){
+
 						emailSrc = emailSrc.substring(pos + 19, emailSrc.length);
 						emailSrc = emailSrc.replace(re, "\\");
 						if(emailSrc.search(spaceRe) != -1){
@@ -51,11 +52,13 @@ angular
 						// console.log(name);
 						// console.log(emailSrc);
 					}
-			
+
+				console.log(emailSrc);			
 				// Get the name of the profile from matching the file names with the ones in the database
 				if (binary == emailSrc){
 					// console.log('match');
 					var name = scope.ctrl.astronauts[i].name;
+					console.log(name);
 				}
 			}
 					//console.log(element.children().children());
