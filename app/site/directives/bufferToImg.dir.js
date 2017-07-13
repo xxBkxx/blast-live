@@ -10,16 +10,16 @@ angular
 		var bytes  = new Uint8Array(buffer);
 		var len = bytes.length;
 
-		console.log(buffer);
+		// console.log(buffer);
 
 		for (var i = 0; i < len; i++){
 			binary +=  String.fromCharCode(bytes[i]);
 		}
 
-		var pos = binary.search("app");
-		binary = binary.substring(pos + 4, binary.length);
+		var pos = binary.search("blast-live");
+		binary = binary.substring(pos + 11, binary.length);
 
-		console.log("bin %s", binary);
+		// console.log("bin %s", binary);
 		// scope.image = binary;
 		astronautSrv.getAstronaut(astronaut);
 		// scope.astronaut.picture.data.data.tempImg = binary;
