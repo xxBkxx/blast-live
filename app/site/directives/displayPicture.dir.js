@@ -45,7 +45,7 @@ angular
 					var assetPos = emailSrc.search("assets");
 					if(emailSrc.search(re) != -1){
 
-						emailSrc = emailSrc.substring(pos, emailSrc.length);
+						emailSrc = emailSrc.substring(pos - 11, emailSrc.length);
 						emailSrc = emailSrc.replace(re, "\\");
 						if(emailSrc.search(spaceRe) != -1){
 							emailSrc = emailSrc.replace(spaceRe, " ");
