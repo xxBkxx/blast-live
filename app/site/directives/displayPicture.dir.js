@@ -62,8 +62,8 @@ angular
 				var imgPosBin = binary.search("img/");
 				var imgPosEmail = emailSrc.search("img");
 
-				var imgBinStr = binary.substring(imgPosBin, binary.length);
-				var imgEmailStr = emailSrc.substring(imgPosEmail + 1, emailSrc.length);
+				var imgBinStr = binary.substring(imgPosBin + 4, binary.length);
+				var imgEmailStr = emailSrc.substring(imgPosEmail + 4, emailSrc.length);
 
 				console.log("bin %s", imgBinStr);
 				console.log("email %s",imgEmailStr);
