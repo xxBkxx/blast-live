@@ -56,7 +56,7 @@ angular
 						// console.log(emailSrc);
 					}
 
-				console.log(scope.ctrl.astronauts);			
+				console.log(scope.ctrl.astronauts[0].name);			
 				// Get the name of the profile from matching the file names with the ones in the database
 				if (binary == emailSrc){
 					// console.log('match');
