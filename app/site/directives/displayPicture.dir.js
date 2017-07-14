@@ -39,6 +39,8 @@ angular
 				for (var j = 0; j < len; j++){
 					binary +=  String.fromCharCode(bytes[j]);
 				}
+
+
 					console.log("binary %s", binary);
 					var pos = binary.search("blast-live");
 					binary = binary.substring(pos + 15, binary.length);
@@ -54,7 +56,7 @@ angular
 						// console.log(emailSrc);
 					}
 
-				console.log(emailSrc);			
+				console.log(scope.ctrl.astronauts);			
 				// Get the name of the profile from matching the file names with the ones in the database
 				if (binary == emailSrc){
 					// console.log('match');
