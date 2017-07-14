@@ -39,10 +39,10 @@ db.once('open', function(){
 		console.log('connected to db at ec2-35-160-189-111.us-west-2.compute.amazonaws.com/db');
 
 	// Drop the db----------------------
-	mongoose.connection.db.dropDatabase(function (err) {
-	  console.log('db dropped');
-	  // process.exit(0);
-	});
+	// mongoose.connection.db.dropDatabase(function (err) {
+	//   console.log('db dropped');
+	//   // process.exit(0);
+	// });
 	// ----------------------------
 	
 });
