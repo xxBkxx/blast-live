@@ -63,7 +63,7 @@ angular
 				var imgPosEmail = emailSrc.search("img");
 
 				var imgBinStr = binary.substring(imgPosBin, binary.length);
-				var imgEmailStr = emailSrc.substring(imgPosStr + 1, emailSrc.length);
+				var imgEmailStr = emailSrc.substring(imgPosEmail + 1, emailSrc.length);
 
 				if (binary == emailSrc){
 					// console.log('match');
