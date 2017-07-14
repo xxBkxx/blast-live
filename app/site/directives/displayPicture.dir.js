@@ -56,8 +56,15 @@ angular
 						// console.log(emailSrc);
 					}
 
-				console.log(scope.ctrl.astronauts[i].name);			
+				// console.log(scope.ctrl.astronauts[i].name);			
 				// Get the name of the profile from matching the file names with the ones in the database
+
+				var imgPosBin = binary.search("img/");
+				var imgPosEmail = emailSrc.search("img\\");
+
+				var imgBinStr = binary.substring(imgPosBin, binary.length);
+				var imgEmailStr = emailSrc.substring(imgPosStr, emailSrc.length);
+
 				if (binary == emailSrc){
 					// console.log('match');
 					var name = scope.ctrl.astronauts[i].name;
