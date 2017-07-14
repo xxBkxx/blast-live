@@ -39,6 +39,7 @@ angular
 				for (var j = 0; j < len; j++){
 					binary +=  String.fromCharCode(bytes[j]);
 				}
+					console.log("binary %s", binary);
 					var pos = binary.search("blast-live");
 					binary = binary.substring(pos + 15, binary.length);
 					var assetPos = emailSrc.search("assets");
