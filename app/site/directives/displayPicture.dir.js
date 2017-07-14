@@ -60,7 +60,7 @@ angular
 				// Get the name of the profile from matching the file names with the ones in the database
 
 				var imgPosBin = binary.search("img/");
-				var imgPosEmail = emailSrc.search("img\\");
+				var imgPosEmail = emailSrc.search("img" +"\\");
 
 				var imgBinStr = binary.substring(imgPosBin, binary.length);
 				var imgEmailStr = emailSrc.substring(imgPosStr, emailSrc.length);
