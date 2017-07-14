@@ -65,7 +65,10 @@ angular
 				var imgBinStr = binary.substring(imgPosBin, binary.length);
 				var imgEmailStr = emailSrc.substring(imgPosEmail + 1, emailSrc.length);
 
-				if (binary == emailSrc){
+				console.log("bin %s", imgBinStr);
+				console.log("email %s",imgEmailStr);
+
+				if (imgBinStr == imgEmailStr){
 					// console.log('match');
 					var name = scope.ctrl.astronauts[i].name;
 					console.log(name);
