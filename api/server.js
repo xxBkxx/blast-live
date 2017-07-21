@@ -31,7 +31,7 @@ app.use('/', new_password);
 // 	res.send("hello World");
 // });
 
-app.set('port_https', 8443);
+app.set('port_https', 443);
 
 app.all('*', function(req,res, next){
 	
@@ -74,7 +74,7 @@ var insecureServer = http.createServer(app).listen(8080);
 // 	res.send("hellp world");
 // }).listen(8443);
 
-var secureServer = https.createServer(options, app).listen(8443);
+var secureServer = https.createServer(options, app).listen(443);
 
 mongoose.Promise = global.Promise;
 // mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-35-160-189-111.us-west-2.compute.amazonaws.com/db');
