@@ -40,8 +40,9 @@ app.all('*', function(req,res, next){
 		// res.send("harlem World");
 		return next();
 	};
+
 	console.log('next');
-	res.redirect("https://" + req.hostname + ":" + app.get('port_https') + '/#!/login');
+	res.redirect("https://" + req.hostname + ":" + app.get('port_https') + auth_routes);
 	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
 	console.log(req.url);
 });
