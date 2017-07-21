@@ -1,5 +1,9 @@
 var express    = require('express');
+const https    = require('https');
+const http     = require('http');
+const fs 	   = require('fs');
 var app 	   = express();
+
 var authentication = require("./middleware/auth");
 
 var mongoose   = require('mongoose');
@@ -18,21 +22,61 @@ app.use("/", auth_routes);
 app.use("/", user_routes);
 app.use('/', forgot_routes);
 app.use('/', new_password);
-// app.use('/', authentication, anonymous_routes)
+// app.use('/', authentication, anonymous_routes);
 
 // console.log(__dirname + "/../app/");
+
+// https secure connection ###########
+// app.get('/', function(req,res){
+// 	res.send("hello World");
+// });
+
+// app.set('port_https', 8443);
+
+// app.all('*', function(req,res, next){
+	
+// 	if(req.secure){
+// 		// console.log(app);
+// 		// res.send("harlem World");
+// 		return next();
+// 	}
+// 	console.log('next');
+// 	res.redirect("https://" + req.hostname + ":" + app.get('port_https') + req.url);
+
+// });
+
 var port = process.env.PORT || 8080;
-app.use(express.static(__dirname + './../app', {redirect: true}));
-	app.listen(port, function(){
-		console.log('Listening on Port 8080');
-		console.log('Press CTRL + C to stop server');
-	});
 
+// The original express Connection String ########
+// app.use(express.static(__dirname + './../app', {redirect: true}));
 
+// app.listen(port, function(){
+// 		console.log('Listening on Port 8080');
+// 		console.log('Press CTRL + C to stop server');
+// });
+
+const options = {
+	key:  fs.readFileSync('../private.key'),
+	cert: fs.readFileSync('../certificate.pem')
+	// ca:   fs.readFileSync('../blast.crt'),
+	// requestCert: true,
+	// rejectUnauthorized: false
+}
+
+// http.createServer(app).listen(8080);
+
+// var secureServer = https.createServer(options, app,(req,res) => {
+// 	console.log(app);
+// 	// res.end(app);
+// 	res.writeHead(200);
+// 	res.send("hellp world");
+// }).listen(8443);
+
+var secureServer = https.createServer(options, app).listen(8443);
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-35-160-189-111.us-west-2.compute.amazonaws.com/db');
-// mongoose.connect("mongodb://localhost/data/db");
+// mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-35-160-189-111.us-west-2.compute.amazonaws.com/db');
+mongoose.connect("mongodb://localhost/data/db");
 var db 		 = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection Error:'));
 db.once('open', function(){
