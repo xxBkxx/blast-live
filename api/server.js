@@ -63,7 +63,7 @@ const options = {
 	// ca:   fs.readFileSync('../blast.crt'),
 	// requestCert: true,
 	// rejectUnauthorized: false
-}
+};
 
 var insecureServer = http.createServer(app).listen(8080);
 
