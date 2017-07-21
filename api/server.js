@@ -42,7 +42,7 @@ app.all('*', function(req,res, next){
 	}
 	console.log('next');
 	res.redirect("https://" + req.hostname + ":" + app.get('port_https') + req.url);
-
+	console.log(req.hostname);
 });
 
 var port = process.env.PORT || 8080;
