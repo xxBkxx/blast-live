@@ -39,9 +39,10 @@ app.all('*', function(req,res, next){
 		// console.log(app);
 		// res.send("harlem World");
 		return next();
-	}
+	};
 	console.log('next');
 	res.redirect("https://" + req.hostname + ":" + app.get('port_https') + req.url);
+	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
 	console.log(req.hostname);
 });
 
@@ -63,7 +64,7 @@ const options = {
 	// rejectUnauthorized: false
 }
 
-// http.createServer(app).listen(8080);
+var insecureServer = http.createServer(app).listen(8080);
 
 // var secureServer = https.createServer(options, app,(req,res) => {
 // 	console.log(app);
