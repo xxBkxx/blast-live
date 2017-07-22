@@ -50,12 +50,12 @@ app.set('port_https', 8443);
 var port = process.env.PORT || 8080;
 
 // The original express Connection String ########
-// app.use(express.static(__dirname + './../app', {redirect: true}));
+app.use(express.static(__dirname + './../app', {redirect: true}));
 
-// app.listen(port, function(){
-// 		console.log('Listening on Port 8080');
-// 		console.log('Press CTRL + C to stop server');
-// });
+app.listen(port, function(){
+		console.log('Listening on Port 8080');
+		console.log('Press CTRL + C to stop server');
+});
 
 const options = {
 	key:  fs.readFileSync('../private.key'),
