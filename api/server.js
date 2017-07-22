@@ -77,12 +77,12 @@ var insecureServer = http.createServer(app).listen(8080);
 var secureServer = https.createServer(options, app).listen(8443);
 
 mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-35-160-189-111.us-west-2.compute.amazonaws.com/db');
-mongoose.connect("mongodb://localhost/data/db");
+mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-35-160-189-111.us-west-2.compute.amazonaws.com/db');
+// mongoose.connect("mongodb://localhost/data/db");
 var db 		 = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection Error:'));
 db.once('open', function(){
-		console.log('connected to db at ec2-35-160-189-111.us-west-2.compute.amazonaws.com/db');
+		console.log('localhost');
 
 	// Drop the db----------------------
 	// mongoose.connection.db.dropDatabase(function (err) {
