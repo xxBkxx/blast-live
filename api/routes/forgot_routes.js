@@ -91,8 +91,8 @@ router.post('/sendForgotMail', upload.any(),  function(req, res, next){
 			subject:      "BLAST--Password Reset",
 			
 			// ToDO #1: Don't forget to attach a url here
-			text: "Hey " + name + " reset you password here localhost:8080/#!/setPassword?tkn=" + new_token,
-			html: "Hey " + name + " you can <a href='http://localhost:8080/#!/setPassword/" + new_token + "'>rest your password here</a>" + "\n\n" +
+			text: "Hey " + name + " reset you password here http://blast.imajin.media/#!/setPassword?tkn=" + new_token,
+			html: "Hey " + name + " you can <a href='http://blast.imajin.media/#!/setPassword/" + new_token + "'>rest your password here</a>" + "\n\n" +
 				  "The link expires in an hour so make it snappi pappi." 
 			
 		};
