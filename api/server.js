@@ -47,9 +47,9 @@ app.set('port_https', 8443);
 // 	console.log(req.url);
 // });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 80;
 
-console.log(process.env);
+// console.log(process.env);
 
 
 // The original express Connection String ########
