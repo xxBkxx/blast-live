@@ -52,7 +52,7 @@ var port = process.env.PORT || 80;
 // The original express Connection String ########
 app.use(express.static(__dirname + './../app', {redirect: true}));
 
-app.listen(port, function(){
+app.listen(app.get('port'), function(){
 		console.log('Listening on Port 80');
 		console.log('Press CTRL + C to stop server');
 });
