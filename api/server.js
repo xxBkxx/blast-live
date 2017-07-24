@@ -47,13 +47,13 @@ app.set('port_https', 8443);
 // 	console.log(req.url);
 // });
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 80;
 
 // The original express Connection String ########
 app.use(express.static(__dirname + './../app', {redirect: true}));
 
 app.listen(port, function(){
-		console.log('Listening on Port 8080');
+		console.log('Listening on Port 80');
 		console.log('Press CTRL + C to stop server');
 });
 
