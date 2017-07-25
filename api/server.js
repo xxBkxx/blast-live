@@ -55,10 +55,10 @@ var port = process.env.PORT || 80;
 // The original express Connection String ########
 app.use(express.static(__dirname + './../app', {redirect: true}));
 
-app.listen(port, function(){
-		console.log('Listening on Port 3000');
-		console.log('Press CTRL + C to stop server');
-});
+// app.listen(port, function(){
+// 		console.log('Listening on Port 3000');
+// 		console.log('Press CTRL + C to stop server');
+// });
 
 const options = {
 	key:  fs.readFileSync('../blast.key'),
