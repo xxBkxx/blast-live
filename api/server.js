@@ -61,8 +61,8 @@ app.use(express.static(__dirname + './../app', {redirect: true}));
 // });
 
 const options = {
-	key:  fs.readFileSync('../blast.key'),
-	cert: fs.readFileSync('../blast.crt')
+	key:  fs.readFileSync('blast.key'),
+	cert: fs.readFileSync('blast.crt')
 	// ca:   fs.readFileSync('../blast.crt'),
 	// requestCert: true,
 	// rejectUnauthorized: false
