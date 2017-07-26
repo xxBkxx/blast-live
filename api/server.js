@@ -42,7 +42,7 @@ app.all('*', function(req,res, next){
 	};
 
 	// console.log('next');
-	res.redirect("https://" + req.hostname);
+	res.redirect("https://" + req.hostname );
 	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
 	// console.log(req.url);
 });
@@ -68,7 +68,7 @@ const options = {
 	// rejectUnauthorized: false
 };
 
-var insecureServer = http.createServer(app).listen(3000);
+var insecureServer = http.createServer(app).listen(80);
 
 // var secureServer = https.createServer(options, app,(req,res) => {
 // 	console.log(app);
@@ -77,7 +77,7 @@ var insecureServer = http.createServer(app).listen(3000);
 // 	res.send("hellp world");
 // }).listen(8443);
 
-var secureServer = https.createServer(options, app).listen(8443);
+var secureServer = https.createServer(options, app).listen(443);
 
 mongoose.Promise = global.Promise;
 // mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-52-40-8-179.us-west-2.compute.amazonaws.com/db');
