@@ -41,10 +41,10 @@ app.all('*', function(req,res, next){
 		return next();
 	};
 
-	console.log('next');
-	res.redirect("https://" + req.hostname + ":" + app.get('port_https') + req.url);
+	// console.log('next');
+	res.redirect("https://" + req.hostname);
 	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
-	console.log(req.url);
+	// console.log(req.url);
 });
 
 var port = process.env.PORT || 3000;
