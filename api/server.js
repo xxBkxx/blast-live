@@ -35,17 +35,17 @@ app.set('port_https', 8443);
 
 // app.all('*', function(req,res, next){
 	
-// 	if(req.secure){
-// 		// console.log(app);
-// 		// res.send("harlem World");
-// 		return next();
-// 	};
+	if(req.secure){
+		// console.log(app);
+		// res.send("harlem World");
+		return next();
+	};
 
-// 	console.log('next');
-// 	res.redirect("https://" + req.hostname + ":" + app.get('port_https') + req.url);
-// 	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
-// 	console.log(req.url);
-// });
+	console.log('next');
+	res.redirect("https://" + req.hostname + ":" + app.get('port_https') + req.url);
+	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
+	console.log(req.url);
+});
 
 var port = process.env.PORT || 80;
 
@@ -68,7 +68,7 @@ const options = {
 	// rejectUnauthorized: false
 };
 
-var insecureServer = http.createServer(app).listen(80);
+var insecureServer = http.createServer(app).listen(8080);
 
 // var secureServer = https.createServer(options, app,(req,res) => {
 // 	console.log(app);
@@ -80,8 +80,8 @@ var insecureServer = http.createServer(app).listen(80);
 var secureServer = https.createServer(options, app).listen(443);
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-52-40-8-179.us-west-2.compute.amazonaws.com/db');
-// mongoose.connect("mongodb://localhost/data/db");
+// mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-52-40-8-179.us-west-2.compute.amazonaws.com/db');
+mongoose.connect("mongodb://localhost/data/db");
 var db 		 = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection Error:'));
 db.once('open', function(){
