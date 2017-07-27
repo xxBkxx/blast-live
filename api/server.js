@@ -35,17 +35,17 @@ app.set('port_https', 8443);
 
 app.all('*', function(req,res, next){
 	
-	if(req.secure){
-		// console.log(app);
-		// res.send("harlem World");
-		return next();
-	};
+// 	if(req.secure){
+// 		// console.log(app);
+// 		// res.send("harlem World");
+// 		return next();
+// 	};
 
-	// console.log('next');
-	res.redirect("https://" + req.hostname );
-	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
-	// console.log(req.url);
-});
+// 	// console.log('next');
+// 	res.redirect("https://" + req.hostname );
+// 	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
+// 	// console.log(req.url);
+// });
 
 var port = process.env.PORT || 3000;
 
