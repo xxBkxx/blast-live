@@ -33,7 +33,7 @@ app.use('/', new_password);
 
 app.set('port_https', 8443);
 
-app.all('*', function(req,res, next){
+// app.all('*', function(req,res, next){
 	
 // 	if(req.secure){
 // 		// console.log(app);
