@@ -10,6 +10,7 @@
 			this.username = username;
 			// this.authSrv  = authSrv;
 			this.logout   = logout;
+			this.toLoginPage  = toLoginPage;
 
 			function goToPage(page){
 
@@ -23,6 +24,10 @@
 
 			function logout(){
 				authSrv.logout();
+			}
+
+			function toLoginPage(){
+				$location.url('/login');
 			}
 		}
 })();

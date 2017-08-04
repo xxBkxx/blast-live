@@ -21,20 +21,22 @@
 
 		<script type="text/javascript" src='app.js'></script>
 
-
 		<script type="text/javascript" src="site/controllers/choice.ctrl.js" ></script>
-		<script type="text/javascript" src="site/controllers/rejection.ctrl.js" ></script>
+		<!-- <script type="text/javascript" src="site/controllers/rejection.ctrl.js" ></script> -->
 		<script type="text/javascript" src="site/controllers/login.ctrl.js" ></script>
 		<script type="text/javascript" src="site/controllers/add.ctrl.js" ></script>
 		<script type="text/javascript" src="site/controllers/search.ctrl.js" ></script>
 		<script type="text/javascript" src="site/controllers/addUser.ctrl.js" ></script>
 		<script type="text/javascript" src="site/controllers/enterEmail.ctrl.js" ></script>
 		<script type="text/javascript" src="site/controllers/sentConfirmation.ctrl.js"></script>
-		<script type="text/javascript" src="site/controllers/newPassword.ctrl.js"></script>		
+		<script type="text/javascript" src="site/controllers/newPassword.ctrl.js"></script>	
+		<script type="text/javascript" src="site/controllers/application.ctrl.js"></script>	
+
 		<script type="text/javascript" src="site/directives/upload.dir.js"></script>
 		<script type="text/javascript" src="site/directives/bufferToImg.dir.js"></script>
 		<script type="text/javascript" src="site/directives/displayPicture.dir.js"></script>
 		<script type="text/javascript" src="site/directives/loginFailed.dir.js"></script>
+		<script type="text/javascript" src="site/directives/notAuthorized.dir.js"></script>
 
 		<script type="text/javascript" src="site/services/api.srv.js" ></script>
 		<script type="text/javascript" src="site/services/img.srv.js" ></script>
@@ -44,7 +46,8 @@
 		<script type="text/javascript" src="site/services/regEx.srv.js" ></script>	
 
 	</head>
-	<body ng-app='blastApp'>
+	<body ng-controller='ApplicationController as ctrl' not-authorized ng-app='blastApp'>
+	<!-- <body ng-app='blastApp'> -->
 		<div ng-view class="content"></div>
 	</body>
 </html>

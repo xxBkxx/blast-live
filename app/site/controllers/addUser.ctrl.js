@@ -10,24 +10,22 @@
 
 			function createUser(){
 
-				console.log('creating user');
-				console.log('name %s', this.name);
+				// console.log('creating user');
+				// console.log('name %s', this.name);
 
 				formData.append('userName', this.userName);
 				formData.append('password', this.password);
 				formData.append('name', 	this.name)
 
-				authSrv.createUser(formData, function(res){
-
-					console.log('res %s', res);
-
-					if (res.status == 200){
-						$location.url('/choice');
-					} else {
-						console.log('error');
-					}
-				});
-
+				authSrv.createUser(formData);
+					// .then(function(res){
+					// 	console.log('res %s', res);
+					// 	if (res.status == 200){
+					// 		$location.url('/login');
+					// 	} else {
+					// 		console.log('error');
+					// 	}
+					// })
 			}
 		}
 })();

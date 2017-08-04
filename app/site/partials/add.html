@@ -1,9 +1,7 @@
-		<div class='content'>
-        <div class="login-message">
-            <p class="vertical-align horizontal-centre">
-               <a ng-click="ctrl.toLoginPage()" class="signup-link">Please login</a>
-            </p>
-        </div>
+			<div class="login-message not-authorized"> 
+			<p class="vertical-align horizontal-centre">
+			<a ng-click="ctrl.toLoginPage()" class="signup-link">Please login</a>
+	  		</p></div>
 			<div class='content-container horizontal-centre'>
 				<div class="header">
 					<div class="username-container vertical-align">
@@ -25,7 +23,8 @@
 					</div>
 
 					<img class="default-pic horizontal-centre" src="../../assets/img/default-link.png">
-					<form class="add-form" enctype="multipart/form-data">
+					<fieldset ng-disabled='isDisabled' id='myField' class='myField'>
+					<form id='add-form' class="add-form" enctype="multipart/form-data">
 						<ul class="form-ul horizontal-centre">
 
 							<li id="file-btn-li">
@@ -93,6 +92,6 @@
 							</li>
 						</ul>
 					</form>
+					</fieldset>
 				</div> 
 			</div>
-		</div>

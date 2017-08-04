@@ -4,7 +4,7 @@
 		.module('blastApp')
 		.controller('AddController', AddController);
 
-		function AddController(apiSrv, $location, $window, username, authSrv, $scope){
+		function AddController(apiSrv, AUTH_EVENTS, $location, $window, username, authSrv, $scope){
 
 			this.add         = add;
 			this.goToSearch  = goToSearch;
@@ -21,7 +21,7 @@
 			// Check for the login token
 			var token = localStorage.getItem('authToken');
 			// console.log(token);
-			authSrv.isLoggedIn(token);
+			// authSrv.isLoggedIn(token);
 
 			// Unload the token on browser exit...
 			// $window.onunload = authSrv.deleteTokenOnBrowserClose;
@@ -30,6 +30,8 @@
 
 			// Image Preview ##############
 			// ############################
+
+			// authSrv.authentication($location.url());
 
 			function logout(){
 				authSrv.logout();
@@ -45,7 +47,8 @@
 				var preview = document.querySelector(".default-pic");
 				var reader  = new FileReader();
 
-				reader.addEventListener("load", function(){					preview.src = reader.result;
+				reader.addEventListener("load", function(){					
+					preview.src = reader.result;
 				}, false);
 
 				if(file){
@@ -60,6 +63,8 @@
 
 			function add(){
 
+				// $scope.notAuthorized();
+				
 				var formData = new FormData();
 
 				formData.append('file', this.file);

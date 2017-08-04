@@ -1,15 +1,76 @@
 (function(){
 
+// Notes ##################
+// ########################
+// ########################
+// You temporarily disabled 
+// lines 142 - 151 ( init username 
+// and init astronauts)
+
 angular
-	.module("blastApp", [ 'ngRoute', 'angular-jwt', 'ngMessages']);
+	.module("blastApp", [
+		
+		'ngRoute', 'angular-jwt', 'ngMessages'
+	])
+	
+	// login constants
+	.constant('AUTH_EVENTS', {
+
+		loginSuccess:   'auth-login-success',
+		loginFail:      'auth-login-failure',
+		logoutSuccess:  'auth-logout-success',
+		sessionTimeout:  'auth-session-timeout',
+		notAuthenticated:'auth-not-authenticated',
+		showLoginScreen: 'auth-show-login'
+	})
+
+// handles the login broadcast
+angular
+	.module("blastApp")
+
+	.run(function ($rootScope, AUTH_EVENTS, authSrv, $location){
+		
+		$rootScope.$on(AUTH_EVENTS.loginFail, function (event, next){
+			// TODO #1: user roles?
+			console.log("failed ");
+
+		});
+
+		$rootScope.$on(AUTH_EVENTS.loginSuccess, function(event, next){
+			console.log('pass');
+			$location.url('/choice');
+		});
+
+		// #######################################################
+		// Check for a token #####################################
+		// #######################################################
+		$rootScope.$on('$routeChangeStart', function(event, next){
+			var token = localStorage.getItem('authToken');
+			var current_url = $location.path();
+			// TODO# how do I authenticat this token?
+			
+			if (!!token){
+				console.log('theres a token');
+				// $location.url('/choice');
+
+			} else if (!token && current_url !== '/login') {
+				console.log(current_url);
+				// event.preventDefault();
+				$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+				// $location.url('/login');
+				// console.log($rootScope);
+
+				console.log('theres no token');
+			}
+		});
+
+	});
 
 angular
 	.module("blastApp")
+
 	.config(configBlock); 
-
-
 	configBlock.$inject = ['$routeProvider', '$httpProvider', "$locationProvider"];
-
 	function configBlock($routeProvider, $httpProvider, $locationProvider){
 
 		$routeProvider
@@ -80,11 +141,12 @@ angular
 				controller:  "SearchController as ctrl",
 				resolve:{
 
+						// You temporarily disbled this 
 						username: function(authSrv){
 							var username = authSrv.initUser();
 						return username;
 					},
-
+						// You temprorily disabled this
 						initAstronauts: function(astronautSrv){
 							astronauts = astronautSrv.initAstronauts();
 							// console.log(astronauts.$$state);
@@ -111,6 +173,8 @@ angular
 
 			// console.log()
 
+
+			// http interceptors
 			$httpProvider.interceptors.push(function($q, jwtHelper, $rootScope){
 
 				return {
@@ -125,7 +189,7 @@ angular
 					},
 
 					responseError: function(rejection){
-						console.log(rejection); 
+					 	console.log(rejection); 
 						if (rejection.status === 401){
 							// console.log(rejection);
 							
@@ -167,6 +231,5 @@ angular
 
 				}
 			})
-
 	}
 })();
