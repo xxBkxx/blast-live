@@ -47,7 +47,7 @@ app.set('port_https', 8443);
 // 	// console.log(req.url);
 // });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 
 // console.log(process.env);
 
@@ -55,20 +55,24 @@ var port = process.env.PORT || 3000;
 // The original express Connection String ########
 app.use(express.static(__dirname + './../app', {redirect: true}));
 
-// app.listen(port, function(){
-// 		console.log('Listening on Port 3000');
-// 		console.log('Press CTRL + C to stop server');
-// });
+app.listen(port, function(){
+		console.log('Listening on Port %s', port);
+		console.log('Press CTRL + C to stop server');
+});
 
-const options = {
-	key:  fs.readFileSync('blast.key'),
-	cert: fs.readFileSync('blast.crt')
-	// ca:   fs.readFileSync('../blast.crt'),
-	// requestCert: true,
-	// rejectUnauthorized: false
-};
 
-var insecureServer = http.createServer(app).listen(80);
+// ssl files!!!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// const options = {
+// 	key:  fs.readFileSync('blast.key'),
+// 	cert: fs.readFileSync('blast.crt')
+// 	// ca:   fs.readFileSync('../blast.crt'),
+// 	// requestCert: true,
+// 	// rejectUnauthorized: false
+// };%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+// live server connections
+// var insecureServer = http.createServer(app).listen(80);
 
 // var secureServer = https.createServer(options, app,(req,res) => {
 // 	console.log(app);
@@ -77,11 +81,12 @@ var insecureServer = http.createServer(app).listen(80);
 // 	res.send("hellp world");
 // }).listen(8443);
 
-var secureServer = https.createServer(options, app).listen(8443);
+// live server connections
+// var secureServer = https.createServer(options, app).listen(8443);
 
 mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-52-40-8-179.us-west-2.compute.amazonaws.com/db');
-mongoose.connect("mongodb://localhost/data/db");
+mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-52-40-8-179.us-west-2.compute.amazonaws.com/db');
+// mongoose.connect("localhost/data/db");
 var db 		 = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection Error:'));
 db.once('open', function(){
