@@ -55,24 +55,24 @@ var port = process.env.PORT || 80;
 // The original express Connection String ########
 app.use(express.static(__dirname + './../app', {redirect: true}));
 
-app.listen(port, function(){
-		console.log('Listening on Port %s', port);
-		console.log('Press CTRL + C to stop server');
-});
+// app.listen(port, function(){
+// 		console.log('Listening on Port %s', port);
+// 		console.log('Press CTRL + C to stop server');
+// });
 
 
 // ssl files!!!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-// const options = {
-// 	key:  fs.readFileSync('blast.key'),
-// 	cert: fs.readFileSync('blast.crt')
+	const options = {
+		key:  fs.readFileSync('blast.key'),
+		cert: fs.readFileSync('blast.crt')
 // 	// ca:   fs.readFileSync('../blast.crt'),
 // 	// requestCert: true,
 // 	// rejectUnauthorized: false
-// };%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+};
 
 
 // live server connections
-// var insecureServer = http.createServer(app).listen(80);
+var insecureServer = http.createServer(app).listen(80);
 
 // var secureServer = https.createServer(options, app,(req,res) => {
 // 	console.log(app);
@@ -82,7 +82,7 @@ app.listen(port, function(){
 // }).listen(8443);
 
 // live server connections
-// var secureServer = https.createServer(options, app).listen(8443);
+var secureServer = https.createServer(options, app).listen(8443);
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-52-40-8-179.us-west-2.compute.amazonaws.com/db');
