@@ -72,7 +72,7 @@ app.use(express.static(__dirname + './../app', {redirect: true}));
 
 
 // live server connections
-var insecureServer = http.createServer(app).listen(80);
+var insecureServer = http.createServer(app).listen(3000);
 
 // var secureServer = https.createServer(options, app,(req,res) => {
 // 	console.log(app);
