@@ -28,7 +28,7 @@ angular
 angular
 	.module("blastApp")
 
-	.run(function ($rootScope, AUTH_EVENTS, authSrv, $location){
+	.run(function ($rootScope, AUTH_EVENTS, authSrv,$timeout, $location){
 		
 		$rootScope.$on(AUTH_EVENTS.loginFail, function (event, next){
 			// TODO #1: user roles?
@@ -56,7 +56,11 @@ angular
 			} else if (!token && current_url !== '/login') {
 				console.log(current_url);
 				// event.preventDefault();
-				$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+				$timeout(function(){
+					$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+				},100);
+
+				console.log($rootScope);
 				// $location.url('/login');
 				// console.log($rootScope);
 
@@ -189,7 +193,7 @@ angular
 					},
 
 					responseError: function(rejection){
-					 	console.log(rejection); 
+					 	// console.log(rejection); 
 						if (rejection.status === 401){
 							// console.log(rejection);
 							

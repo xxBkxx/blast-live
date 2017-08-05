@@ -1,6 +1,6 @@
 angular
 	.module('blastApp')
-	.directive('notAuthorized', function(AUTH_EVENTS, $location){
+	.directive('notAuthorized', function(AUTH_EVENTS, $location, $rootScope){
 
 	return{
 		restrict: 'AC',
@@ -11,7 +11,7 @@ angular
   //           		'</p></div>',
 
 		link: function(scope, element, attrs){
-
+			console.log(scope);
 			// var isClickable = angular.isDefined(attrs.isClickable) && scope.$eval(attrs.isClickable) === true ? true : false;
 
 			// scope.toLoginPage = function(){
@@ -25,14 +25,19 @@ angular
 			// 		// $(this).unbind('body').s
 			// }
 
-			scope.$on(AUTH_EVENTS.notAuthorized, 
+			scope.$parent.$on(AUTH_EVENTS.notAuthenticated, function(event, state){
+					element.css('display', 'block');
+					element.parent().css('overflow-x', 'hidden');
+					element.parent().css('overflow-y', 'auto');
+
+				// event.preventDefault();
+				
+			} 
 				// var curr_location = $location.path();
 					// document.getElementById('myField').disabled = true;
 					// disable the fucking form elements
 					// console.log(scope),
-					element.css('display', 'block'),
-					element.parent().css('overflow-x', 'hidden'),
-					element.parent().css('overflow-y', 'auto'),
+
 					// document.getElementsByClassName('login-message').style.color =  'block'	
 					// console.log(scope)
 					// $(".login-message").remove()

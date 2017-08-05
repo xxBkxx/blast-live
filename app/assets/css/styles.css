@@ -12,14 +12,14 @@ body{
 }
 
 .login-message{
-	scroll-behavior: unset;
+	/*scroll-behavior: unset;*/
 	display: none;
 	position: fixed;
 	top:-10px;
 	width: 100%;
 	height: 110%;
 	color: darkorange;
-	background-color: rgba(0,0,0,0.9);
+	background-color: rgba(0,0,0,0.986);
 	z-index: 100;
 }
 
