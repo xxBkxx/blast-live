@@ -8,7 +8,7 @@
 		$('body').css('background-image','url("../assets/img/login-bg.jpg")');
 		$('body').css('background-position-y', '-100px');
 		$('body').css('background-position-x', 'calc(50% + 0px');
-
+		$('body').css('overflow', 'hidden')
 
 		this.login 		   = login;
 		this.removeMessage = removeMessage;

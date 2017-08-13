@@ -16,7 +16,8 @@
 			// this.deleteTokenOnBrowserClose = deleteTokenOnBrowserClose;
 
 			$('body').css('background-image','url("../assets/img/add-bg.jpg")');
-			$('body').css('background-position', 'center');
+			$('body').css('overflow', 'initial')
+
 
 			// Check for the login token
 			var token = localStorage.getItem('authToken');

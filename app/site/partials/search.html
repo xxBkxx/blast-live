@@ -33,7 +33,7 @@
                      <input ng-keypress='ctrl.searchAstronauts()' placeholder="Search" ng-model='ctrl.search[ctrl.select.field]' class="horizontal-centre search-bx search-form-element" type="text" name="">
                   </li>
                   <li>
-                     <select id='search-select'  ng-init="ctrl.select = ctrl.selectOptions[0]" class="search-form-element" ng-options='option.label for option in ctrl.selectOptions'  required ng-model='ctrl.select'>
+                     <select id='search-select'  ng-init="ctrl.select = ctrl.selectOptions[0]" class="embossedBorder search-form-element" ng-options='option.label for option in ctrl.selectOptions'  required ng-model='ctrl.select'>
                      </select>
                      <button ng-click='ctrl.clearSearch(ctrl.selectOptions.field)'>Clear</button>
                   </li>
@@ -72,7 +72,7 @@
                                  <input class="search-form-element" ng-model='ctrl.toInput' placeholder="To" type="text" name="">
                               </li>
                               <li>
-                                 <textarea ng-model='ctrl.messageText' placeholder="Message" class="search-textarea"></textarea>
+                                 <textarea ng-model='ctrl.messageText' placeholder="Message" class="search-textarea embossedBorder"></textarea>
                               </li>
                               <li class="load-text"><p>Sent</p></li>
                               <li>
