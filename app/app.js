@@ -58,7 +58,7 @@ angular
 				// event.preventDefault();
 				$timeout(function(){
 					$rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
-				},100);
+				},100 );
 
 				console.log($rootScope);
 				// $location.url('/login');
@@ -167,7 +167,7 @@ angular
 			.otherwise({
 				redirectTo: "/login"
 			});
-
+			$locationProvider.html5Mode(true);
 			// $locationProvider
 			// 	.html5Mode({
 			// 		enabled: false,

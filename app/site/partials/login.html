@@ -21,20 +21,17 @@ f		<div class='content'>
 								</div>
 							</li>
 							<li>
-
-								<input type='email' name='myField' class='mobile-input' placeholder="username"
+								<input type='email' name='myField' class='mobile-input embossedBorder' placeholder="username"
 									ng-model='ctrl.userName'
 									ng-focus='ctrl.removeMessage()'
 									ng-minlength='2'
 									ng-maxlength='50'
 									ng-pattern="loginRegex" 
 									required />
-
 								<!-- {{ctrl.userName}} -->
 							</li>
 							<li>
-
-								<input type="password" ng-model='ctrl.password' name="password" class="mobile-input" placeholder="password"
+								<input type="password" ng-model='ctrl.password' name="password" class="mobile-input embossedBorder" placeholder="password"
 								ng-minlength='8'
 								ng-maxlength='100'
 								>

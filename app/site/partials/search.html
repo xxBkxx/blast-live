@@ -15,7 +15,7 @@
                <div class="username-container vertical-align">
                   <ul class="username horizontal-centre">
                      <li>
-                        <span >Wa gwan&#44&nbsp{{ctrl.username}} | </span>
+                        <span>Wa Gwan&#44&nbsp{{ctrl.username}} | </span>
                      </li>
                      <li>
                         <a ng-click='ctrl.logout()' class="">Logout</a>
@@ -44,13 +44,12 @@
             <!-- email divs -->
             <ul class="email-forms-ul">
                <li class="container-li">
-                  <div id='email-astros-div' class="collapse-link collapse email-astros-div">
+                  <div id='email-astros-div' class="collapse in">
                      <div class="email-list-title">
-                        <a class="collapse-link" data-target='#email-astros-div, #email-list-div' data-toggle='collapse'>Who am I emailing?</a> 	
+                        <a class="collapse-link" data-toggle='collapse' data-target='#email-astros-div, #email-list-div' href="#email-astros-div" aria-expanded='false' aria-controls='email-astors-div'>Who am I emailing?</a> 	
                      </div>
-                     <div id='email-list-div' class="horizontal-centre email-list-div">
+                     <div id='email-list-div' class="horizontal-centre collapse in email-list-div">
                         <ul id='emailUl' class="email-ul search-ul horizontal-centre">
-                           
 <!--                               <img class="email-pic" src="../../assets/img/default-link-mobile.png"> -->
 							<display-picture>
                         <remove-picture></remove-picture>              
@@ -66,17 +65,16 @@
                      <div class="email-form-title">
                         <a class="collapse-link" aria-expanded="false" aria-controls="email-form-div-container" data-toggle='collapse' data-target='#email-form-div-container'>Email Astronauts</a>
                      </div>
-                     <div id="email-form-div-container" class='email-form-div'>
+                     <div id="email-form-div-container" class='email-form-div in'>
                         <form enctype="multipart/form-data" class="email-form">
                            <ul class="search-ul horizontal-centre">
                               <li class="">
                                  <input class="search-form-element" ng-model='ctrl.toInput' placeholder="To" type="text" name="">
-                              </li>
-
+                              </li>
                               <li>
                                  <textarea ng-model='ctrl.messageText' placeholder="Message" class="search-textarea"></textarea>
                               </li>
-                       <li class="load-text"><p>Sent</p></li>
+                              <li class="load-text"><p>Sent</p></li>
                               <li>
                                  <button id="email-btn" ng-click='ctrl.emailAstros()'>Send</button>
                               </li>
@@ -107,7 +105,7 @@
 	                        </li>
 	                     </ul>
 	                  </div>
-	                  <div id="search-results{{$index}}" class="horizontal-centre search-results-div">
+	                  <div id="search-results{{$index}}" class="horizontal-centre search-results-div collapse in">
 	                     <ul class="results-ul search-ul horizontal-centre">
 	                        <li>
 	                           <h4>{{astronaut.name}}&nbsp-&nbsp{{astronaut.sex}}</h4>

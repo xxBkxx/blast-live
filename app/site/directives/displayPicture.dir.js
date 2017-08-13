@@ -13,7 +13,9 @@ angular
 		// console.log(scope.ctrl.astronauts);
 		// console.log($(".pic-li").children().children()[index]);
 		// console.log(index);
+		
 			if (chkbxValue == "display"){
+
 			// Get the elements with the profile pic in it
 			var emailPic = $(".pic-li").children().children()[index]
 			
@@ -62,7 +64,7 @@ angular
 				var imgPosBin = binary.search("img/");
 				var imgPosEmail = emailSrc.search("img");
 
-				var imgBinStr = binary.substring(imgPosBin + 4, binary.length);
+				var imgBinStr = binary.substring(imgPosBin + 12, binary.length);
 				var imgEmailStr = emailSrc.substring(imgPosEmail + 4, emailSrc.length);
 
 				console.log("bin %s", imgBinStr);
@@ -123,8 +125,13 @@ angular
 						// element.remove(child.parentElement);
 
 						if(child.innerText == index){
-							console.log(child.innerText)
-							picIsThere = true;
+
+							console.log(child.innerText);
+							console.log(parentElement);
+							$(parentElement).remove();
+							
+							// picIsThere = true;
+
 						}else{
 							picIsThere = false;
 						}
@@ -133,8 +140,7 @@ angular
 				})
 				if(picIsThere == true){
 					// $(child.parentElement.remove());
-					console.log(parentElement);
-					$(parentElement).remove();
+
 					// element.remove(parentElement);
 				}
 			}

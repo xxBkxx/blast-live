@@ -5,14 +5,15 @@
 			<div class='content-container horizontal-centre'>
 				<div class="header">
 					<div class="username-container vertical-align">
-                  <ul class="username horizontal-centre">
-                     <li>
-                        <span >Wa gwan&#44&nbsp{{ctrl.username}} | </span>
-                     </li>
-                     <li>
-                        <a ng-click='ctrl.logout()' class="">Logout</a>
-                     </li>
-                  </ul>					</div>
+	                  <ul class="username horizontal-centre">
+	                     <li>
+	                        <span >Wa gwan&#44&nbsp{{ctrl.username}} | </span>
+	                     </li>
+	                     <li>
+	                        <a ng-click='ctrl.logout()' class="">Logout</a>
+	                     </li>
+	                  </ul>					
+                  </div>
 				</div>
 				<div class="logo-container">
 					<img id='add-search-logo' class="horizontal-centre" src='../../assets/img/mobile-logo.png'>
@@ -21,25 +22,20 @@
 					<div class="search-link">
 						<a ng-click='ctrl.goToSearch()'><img class="search-link-img" src="../../assets/img/search-link.png"></a>
 					</div>
-
 					<img class="default-pic horizontal-centre" src="../../assets/img/default-link.png">
 					<fieldset ng-disabled='isDisabled' id='myField' class='myField'>
-					<form id='add-form' class="add-form" enctype="multipart/form-data">
+					<form id='add-form' enctype="multipart/form-data">
 						<ul class="form-ul horizontal-centre">
-
 							<li id="file-btn-li">
-
-								<input onchange='angular.element(this).scope().imgPreview()' id='file' upload-directive ='ctrl.file' type='file' name='pic' class='mobile-input-file' placeholder="browse">
-
+								<input onchange='angular.element(this).scope().imgPreview()' id='file' upload-directive ='ctrl.file' type='file' name='pic' class='mobile-input-file embossedBorder' placeholder="browse">
 							</li>
-
 						</ul>
 						<ul class="name-sex-ul form-ul horizontal-centre">
 							<li id='name-txt-bx'>
-								<input type="name" name="name" class="mobile-input-name-txtbx" ng-model='ctrl.name' placeholder="name">
+								<input type="name" name="name" class="mobile-input-name-txtbx embossedBorder" ng-model='ctrl.name' placeholder="name">
 							</li>
 							<li id="sex-li">
-								<select ng-model='ctrl.sex' id="sex-select">
+								<select ng-model='ctrl.sex' id="sex-select" class='embossedBorder'>
 									<option>Female</option>
 									<option>Male</option>
 									<option>Other</option>
@@ -48,18 +44,18 @@
 						</ul>
 						<ul class="form-ul horizontal-centre">
 							<li>
-								<input ng-model='ctrl.addressOne' type="text" name="address 1" class="mobile-add-input" placeholder="address 1">
+								<input ng-model='ctrl.addressOne' type="text" name="address 1" class="mobile-add-input embossedBorder" placeholder="address 1">
 							</li>
 							<li>
-								<input ng-model='ctrl.addressTwo' type="text" name="address 2" class="mobile-add-input" placeholder="address 2">
+								<input ng-model='ctrl.addressTwo' type="text" name="address 2" class="mobile-add-input embossedBorder" placeholder="address 2">
 							</li>
 						</ul>
 						<ul class="city-prov-ul">
 							<li id='city-li'>
-								<input ng-model='ctrl.city' type="text" name="city" placeholder="city">
+								<input ng-model='ctrl.city' type="text" name="city" class="embossedBorder" placeholder="city">
 							</li>
 							<li>
-								<select ng-model='ctrl.province'>
+								<select class="embossedBorder" ng-model='ctrl.province'>
 									<option>AB</option>
 									<option>BC</option>
 									<option>MN</option>
@@ -77,13 +73,13 @@
 						</ul>
 						<ul class="form-ul horizontal-centre">
 							<li>
-								<textarea ng-model='ctrl.notes' placeholder="notes" class="add-text-area"></textarea>
+								<textarea ng-model='ctrl.notes' placeholder="notes" class="add-text-area embossedBorder"></textarea>
 							</li>
 							<li>
-								<textarea ng-model='ctrl.certifications' placeholder="certifications" class="add-text-area"></textarea>
+								<textarea ng-model='ctrl.certifications' placeholder="certifications" class="add-text-area embossedBorder"></textarea>
 							</li>
 							<li>
-								<textarea ng-model='ctrl.payInfo' placeholder="pay information" class="add-text-area"></textarea>
+								<textarea ng-model='ctrl.payInfo' placeholder="pay information" class="add-text-area embossedBorder"></textarea>
 							</li>
 						</ul>
 						<ul class="form2-ul">

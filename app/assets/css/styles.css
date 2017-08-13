@@ -7,6 +7,21 @@ body{
 	color:black;
 }
 
+	::-webkit-scrollbar{
+		/*background-color: rgba(0,0,0,.4);*/
+	    /*-webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.5); */
+		width: 10px;
+
+	}
+	::-webkit-scrollbar-track {
+	    /*-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); */
+	    border-radius: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+	    border-radius: 10px;
+	    -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.5); 
+	}	
+
 .failed-message{
 	color:red;
 }
@@ -50,7 +65,11 @@ a:hover{
 	text-decoration: underline;
 }
 .search-ul input, select{
-		border: none;
+    border-top: 1px solid #222222;
+    border-left: 1px solid #222222;
+    border-bottom: 1px solid #BBBBBB;
+    border-right: 1px solid #BBBBBB;
+		/*border: none;*/
 
 }
 input, select, textarea{
@@ -105,6 +124,9 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 		height: 50px;
 		border-radius: 10px;
 		margin-bottom: 20px;
+	    position: fixed;
+	    left: 0;
+	    top: 0;
 	}
 
 	.username-container{
@@ -198,7 +220,7 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	.mobile-input{
 	    width: 300px;
 	    height: 40px;
-	    border-radius: 6px;
+	    border-radius: 3px;
 	    background-color: rgba(0,0,0, 0.4);
 	    border: none;
 
@@ -290,6 +312,7 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	}
 
 	#name-txt-bx{
+		padd
 		display: inline;
 		width: 200px;
 		padding-right: 16px;
@@ -305,12 +328,12 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	}
 
 	.search-container{
-    width: 300px;
-    padding-top: 20px;
-    background-color: rgba(0,0,0,.4);
-    padding-bottom: 20px;
-    border-radius: 10px;
-    /*margin-bottom: 20px;*/
+	    width: 300px;
+	    padding-top: 20px;
+	    background-color: rgba(0,0,0,.4);
+	    padding-bottom: 20px;
+	    border-radius: 10px;
+	    /*margin-bottom: 20px;*/
 	}
 
 	.search-form-element{
@@ -331,8 +354,8 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	}
 
 	.search-ul{
+		width: 250px;
 
-		width: 260px;
 	}
 
 	.search-ul li{
@@ -340,9 +363,12 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	}
 
 	.search-ul input{
-				background-color: rgba(0,0,0,0.4);
+		background-color: rgba(0,0,0,0.4);
 	}
 
+	.add-form input{
+		padding-left: 10px;
+	}
 
 	.add-link{
 		position: fixed;
@@ -445,6 +471,12 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 		display: inline;
 	}
 
+	.astro-name{
+		vertical-align: middle;
+		color:white;
+
+	}
+
 	.result-li{
 		display: inline;
 		width: 50%;
@@ -530,14 +562,15 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 
 	body{
 		background-image: url(../../assets/img/search-bg.jpg);
-	    background-position: center;
+	    /*background-position: calc(50% + 70px) center;*/
 	    background-position-y: -472px;
-	    background-position-x: -968px;
+	    background-position-x: calc(50% + 70px);
 	    background-repeat: no-repeat;
 	    background-attachment: fixed;
 	}
 
 	.add-form input, textarea, select{
+		padding-left: 10px;
 			border:none;
 	}
 
@@ -553,8 +586,11 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 		width: 100%;
 		height: 50px;
 		border-radius: 10px;
-		margin-top: 20px;
+		margin-top: 0px;
 		margin-bottom: 20px;
+	    position: fixed;
+	    left: 0;
+	    top: 0;
 	}
 
 	.username-container{
@@ -622,7 +658,7 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	.login-form-div{
 		width: 440px;
 		background-color: rgba(0,0,0,0.4);
-		border-radius: 6px;
+		border-radius: 3px;
 	}
 
 	.mobile-input{
@@ -651,7 +687,7 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	}
 	.form2-ul li:last-child{
 		/*float: right;*/
-		padding: 0 0px 20px 255px;
+		padding: 0 0px 20px 263px;
 	}
 	.forgot-link{
 		margin: 20px 0 0 0;
@@ -719,12 +755,13 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	}
 
 	#name-txt-bx input, .city-prov-ul input{
-		width: 320px;
+		width: 307px;
 		margin-top: 20px;
 		/*margin-right: 6px;*/
 	}
 
 	#sex-li select, .city-prov-ul select{
+		/*margin: 10px;*/
 		width: 70px;
 	}
 
@@ -732,16 +769,18 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 
 	}
 	.form-ul textarea{
-		width: 400px;
+		padding-top: 10px;
+		width: 380px;
 		height: 240px; 
 	}
 
 	.form-ul input{
-		width: 400px;
+	    padding: 0 0 0 10px;
+		width: 380px;
 	}
 
 	#city-li input{
-		padding-right: 6px; 
+		padding-left: 10px; 
 	}
 
 	.form-button-li{
@@ -749,9 +788,11 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	}
 
 	.form-button{
-		width: 70px;
-		margin-left: 55px;
-
+	    width: 110px;
+	    height: 40px;
+	    margin-left: 50px;
+	    border-radius: 10px; 
+	    color:white;
 	}
 
 	.add-link{
@@ -775,66 +816,87 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 
 	.search-container{
 		width: 620px;
-		    height: 180px;
-		    padding-top: 20px;
-		    padding-bottom: 20px;
-    background-color: rgba(0,0,0,0.4);
-    border-radius: 10px;
-    margin-bottom: 20px;
+	    height: 180px;
+	    padding-top: 20px;
+	    padding-bottom: 20px;
+	    background-color: rgba(0,0,0,0.4);
+	    border-radius: 10px;
+	    margin-bottom: 20px;
 	}
 
 	.search-container input{
+		padding-left: 10px;
 		background-color: rgba(0,0,0, 0.4);
 	}
 
 	.search-form-element{
-		width: 540px;
+		width: 530px;
 		height: 80px;
 		margin-top:20px;
 		border-radius: 10px;
 	}
 	#search-select{
-		width: 240px;
+		padding-left: 10px;
+		width: 230px;
 		height: 40px;
 		margin-left: 40px;
 		margin-top: 20px;
+
 	}
 
+	.search-ul button{
+		border-radius: 10px;
+		margin: 0 0 0 10px;
+		width: 80px;
+		height: 40px;
+		color:white;
+	}
+	.search-ul button:hover{
+		cursor:pointer;
+	}
 	#email-astros-div{
-	height: 200px; 
-    /* overflow: auto; */
-    background-color: rgba(0,0,0,.4);
-    /* height: 300px; */
-    /*overflow: auto; */
-    margin-top: 20px;
-    /*margin-bottom: 20px;*/
-    padding-top: 30px;
-    padding-bottom: 50px;
-    border-radius: 10px;
-    width: 300px;
-    /* position: fixed; */
-    /*margin-left: 20px;*/
-    top: 480px;
-    /* opacity: 0.5;*/
+		height: 200px; 
+	    /* overflow: auto; */
+	    background-color: rgba(0,0,0,.4);
+	    /* height: 300px; */
+	    /*overflow: auto; */
+	    margin-top: 20px;
+	    /*margin-bottom: 20px;*/
+	    padding-top: 30px;
+	    padding-bottom: 50px;
+	    border-radius: 10px;
+	    width: 300px;
+	    /* position: fixed; */
+	    /*margin-left: 20px;*/
+	    top: 480px;
+	    /* opacity: 0.5;*/
 	}
 
 	.email-pic{
 		width: 140px;
+		border-radius: 5px;
 	}
+
+	.astro-name{
+		margin: 0 0 0 10px;
+		color: white;
+		vertical-align: middle;
+	}
+
 
 	.email-astros-form{
 		width: 300px;
-    background-color: RGBA(0,0,0,.4);
-    /* overflow: auto; */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    padding-top: 30px;
-    padding-bottom: 8px;
-    /* position: fixed; */
-    /*margin-left: 20px;*/
-    /* height: 300px; */
-    top: 400px;
+		background-color: rgba(0,0,0,.4);
+		/* overflow: auto; */
+		margin-top: 20px;
+		margin-bottom: 20px;
+		border-radius: 10px;
+		padding-top: 30px;
+		padding-bottom: 8px;
+		/* position: fixed; */
+		/*margin-left: 20px;*/
+		/* height: 300px; */
+		top: 400px;
 	}
 
 	.email-list-div{
@@ -848,29 +910,41 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	}
 
 	.email-form input{
-		width: 260px;
+		padding-left: 10px;
+		width: 250px;
 		height: 40px;
 	}
 	.email-form-title{
 		padding-bottom: 20px;
 	}
 	.email-form-div{
-			    overflow: auto;
-    height: 300px;
+		overflow: auto;
+    	height: 300px;
+	}
+
+	.embossedBorder{
+		border-top: 1px solid #222222;
+	    border-left: 1px solid #222222;
+	    border-bottom: 1px solid #BBBBBB;
+	    border-right: 1px solid #BBBBBB;
 	}
 
 	.search-textarea{
-		width: 260px;
+		padding-left: 10px;
+		padding-top: 10px;
+		width: 250px;
 		height: 140px;
 		margin-top: 20px;
 		overflow: hidden;
 		resize: none;
+
 	}
 	.container-li{
 		width: 300px;
 		display: inline-block;
 	}
 	#email-btn{
+		color: white;
 		margin-bottom: 20px;
 		margin-top: 20px;
 	}
@@ -878,7 +952,7 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	.email-forms-ul{
 		text-align: center;
 		position: fixed;
-		top:0;
+		top:calc(50% - 329px);
 		left: calc(50% + 320px);
 	}
 
@@ -912,7 +986,8 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	}
 
 	.email-ul li{
-		display: inline;
+		margin: 0 0 10px 0px;
+		/*display: inline;*/
 	}
 
 	.results-container{
@@ -932,6 +1007,7 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 
 	.email-list-div ul{
 		text-align: left;
+		display: table;
 	}
 
 	.email-container{
@@ -949,5 +1025,12 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	    padding-bottom: 20px;
 	    border-radius: 10px;
 	    overflow: auto;
+	}
+	.results-container-bg p, span, label{
+		color: white;
+	}
+
+	.results-container-bg h4{
+		color: darkorange;
 	}
 }

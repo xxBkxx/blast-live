@@ -26,6 +26,7 @@ angular
 			// }
 
 			scope.$parent.$on(AUTH_EVENTS.notAuthenticated, function(event, state){
+					console.log('not auth')
 					element.css('display', 'block');
 					element.parent().css('overflow-x', 'hidden');
 					element.parent().css('overflow-y', 'auto');

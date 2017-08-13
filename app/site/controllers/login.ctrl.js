@@ -5,8 +5,9 @@
 	function LoginController($scope, $location, AUTH_EVENTS, authSrv, $rootScope, regExSrv ) {
 
 		// set bg
-		$('body').css('background-image','url("../assets/img/add-bg.jpg")');
-		$('body').css('background-position', 'center');
+		$('body').css('background-image','url("../assets/img/login-bg.jpg")');
+		$('body').css('background-position-y', '-100px');
+		$('body').css('background-position-x', 'calc(50% + 0px');
 
 
 		this.login 		   = login;
