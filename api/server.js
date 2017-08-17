@@ -61,10 +61,10 @@ app.use('*',function(req,res,next){
 	res.sendFile(indexFile);
 })
 
-app.listen(port, function(){
-		console.log('Listening on Port %s', port);
-		console.log('Press CTRL + C to stop server');
-});
+// app.listen(port, function(){
+// 		console.log('Listening on Port %s', port);
+// 		console.log('Press CTRL + C to stop server');
+// });
 
 
 // ssl files!!!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
