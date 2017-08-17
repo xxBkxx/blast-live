@@ -37,7 +37,7 @@ app.set('port_https', 8443);
 app.all('*', function(req,res, next){
 	
 	if(req.secure){
-		// console.log(app);
+		console.log('next');
 		// res.send("harlem World");
 		return next();
 	};
