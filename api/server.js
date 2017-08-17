@@ -48,7 +48,7 @@ app.all('*', function(req,res, next){
 	console.log(req.hostname, req.url);
 });
 
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 3000;
 
 // console.log(process.env);
 
