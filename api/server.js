@@ -43,7 +43,7 @@ app.all('*', function(req,res, next){
 	};
 
 	// console.log('next');
-	res.redirect("https://" + req.hostname + req.,url );
+	res.redirect("https://" + req.hostname + req.url );
 	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
 	console.log(req.hostname, req.url);
 });
