@@ -43,7 +43,7 @@ app.all('*', function(req,res, next){
 	};
 
 	// console.log('next');
-	res.redirect("https://" + req.hostname );
+	res.redirect("https://" + req.hostname + req.,url );
 	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
 	console.log(req.hostname, req.url);
 });
@@ -63,7 +63,7 @@ app.use('*',function(req,res,next){
 
 // app.listen(port, function(){
 // 		console.log('Listening on Port %s', port);
-// 		console.log('Press CTRL + C to stop server');
+// 		console.log 	('Press CTRL + C to stop server');
 // });
 
 
