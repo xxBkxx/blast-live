@@ -30,26 +30,29 @@ app.use('/', new_password);
 // https secure connection ###########
 // app.get('/', function(req,res){
 // 	res.send("hello World");
-// });
+// bitnami);
 
-app.set('port_https', 8443);
+// app.set('port_https', 8443);
 
-// app.all('*', function(req,res, next){
+app.all('*', function(req,res, next){
 	
-// 	if(req.secure){
-// 		console.log('next');
-// 		// res.send("harlem World");
-// 		return next();
-// 	} else(
+	if(req.secure){
+		console.log('next');
+		console.log('the url is %s', req.url);
+		// res.send("harlem World");
+		return next();
+	} else(
 
-// 	// console.log('next');
-// 	res.redirect("https://" + req.hostname + req.url );
-// 	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
-// 	console.log(req.hostname, req.url);
-// 	)
-// });
+	// console.log('next');
+	res.redirect("https://" + req.hostname + req.originalUrl );
+	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
+	console.log(req.hostname, req.originalUrl);
+	)
+});
 
-var port = process.env.PORT || 3000;
+// production port is 3000
+// var port = process.env.PORT || 8080; 
+var port = process.env.PORT || 3000; 
 
 // console.log(process.env);
 
@@ -57,15 +60,16 @@ var port = process.env.PORT || 3000;
 // The original express Connection String ########
 app.use(express.static(__dirname + './../app', {redirect: true}));
 
-app.use('*',function(req,res,next){
+// For the bueatification of the url
+app.use('*', function(req,res,next){
 	var indexFile = path.resolve(__dirname + '/../app/index.html');
 	res.sendFile(indexFile);
 })
 
-// app.listen(port, function(){
-// 		console.log('Listening on Port %s', port);
-// 		console.log 	('Press CTRL + C to stop server');
-// });
+app.listen(port, function(){
+		console.log('Listening on Port %s', port);
+		console.log 	('Press CTRL + C to stop server');
+});
 
 
 // ssl files!!!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -77,16 +81,8 @@ app.use('*',function(req,res,next){
 	// rejectUnauthorized: false
 };
 
-
 // live server connections
 var insecureServer = http.createServer(app).listen(3000);
-
-// var secureServer = https.createServer(options, app,(req,res) => {
-// 	console.log(app);
-// 	// res.end(app);
-// 	res.writeHead(200);
-// 	res.send("hellp world");
-// }).listen(8443);
 
 // live server connections
 var secureServer = https.createServer(options, app).listen(8443);
