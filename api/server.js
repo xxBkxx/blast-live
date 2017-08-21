@@ -41,13 +41,12 @@ app.all('*', function(req,res, next){
 		console.log('the url is %s', req.url);
 		// res.send("harlem World");
 		return next();
-	} else(
+	} else if(!req.secure){
 
-	// console.log('next');
 	res.redirect("https://" + req.hostname + req.originalUrl );
-	// res.redirect("https://localhost:" + app.get('port_https') + req.url)
 	console.log(req.hostname, req.originalUrl);
-	)
+	
+	}
 });
 
 // production port is 3000
