@@ -43,9 +43,9 @@ app.all('*', function(req,res, next){
 		return next();
 	} else if(!req.secure){
 
-	res.redirect("https://" + req.hostname + req.originalUrl );
-	console.log(req.hostname, req.originalUrl);
-	
+	res.redirect("https://" + req.hostname + req.url );
+	console.log(req.hostname, req.url);
+
 	}
 });
 
