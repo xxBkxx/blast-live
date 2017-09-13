@@ -34,20 +34,20 @@ app.use('/', new_password);
 
 // app.set('port_https', 8443);
 
-app.use( function(req,res, next){
+// app.use( function(req,res, next){
 	
-	if(req.secure){
-		console.log('next');
-		console.log('the url is %s', req.url);
-		// res.send("harlem World");
-		return next();
-	} else if(!req.secure){
+// 	if(req.secure){
+// 		console.log('next');
+// 		console.log('the url is %s', req.url);
+// 		// res.send("harlem World");
+// 		return next();
+// 	} else if(!req.secure){
 
-	res.redirect("https://" + req.hostname + req.url );
-	console.log(req.hostname, req.url);
+// 	res.redirect("https://" + req.hostname + req.url );
+// 	console.log(req.hostname, req.url);
 
-	}
-});
+// 	}
+// });
 
 // production port is 3000
 // var port = process.env.PORT || 8080; 
