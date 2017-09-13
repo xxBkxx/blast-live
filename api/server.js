@@ -81,7 +81,7 @@ app.use('*', function(req,res,next){
 };
 
 // live server connections
-// var insecureServer = http.createServer(app).listen(3000);
+var insecureServer = http.createServer(app).listen(3000);
 
 // live server connections
 var secureServer = https.createServer(options, app).listen(8443);
