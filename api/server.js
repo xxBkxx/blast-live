@@ -87,8 +87,8 @@ var insecureServer = http.createServer(app).listen(3000);
 var secureServer   = https.createServer(options, app).listen(8443);
 
 mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb://bkdixxon:tmmpw0418@ec2-52-40-8-179.us-west-2.compute.amazonaws.com/db');
-mongoose.connect("localhost/data/db");
+mongoose.connect('mongodb://admin:admin123@ec2-52-40-8-179.us-west-2.compute.amazonaws.com/db');
+// mongoose.connect("localhost/data/db");
 var db 		 = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection Error:'));
 db.once('open', function(){
