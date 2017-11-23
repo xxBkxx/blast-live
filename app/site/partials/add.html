@@ -1,13 +1,17 @@
 			<div class="login-message not-authorized"> 
+<!-- 			<login-failed></login-failed> -->
 			<p class="vertical-align horizontal-centre">
 			<a ng-click="ctrl.toLoginPage()" class="signup-link">Please login</a>
 	  		</p></div>
+			<div class="search-link">
+				<a ng-click='ctrl.goToSearch()'><img class="search-link-img" src="../../assets/img/search-link.png"></a>
+			</div>
 			<div class='content-container horizontal-centre'>
 				<div class="header">
 					<div class="username-container vertical-align">
 	                  <ul class="username horizontal-centre">
 	                     <li>
-	                        <span >Wa gwan&#44&nbsp{{ctrl.username}} | </span>
+	                        <span >Wa Gwan&#44&nbsp{{ctrl.username}} | </span>
 	                     </li>
 	                     <li>
 	                        <a ng-click='ctrl.logout()' class="">Logout</a>
@@ -19,43 +23,34 @@
 					<img id='add-search-logo' class="horizontal-centre" src='../../assets/img/mobile-logo.png'>
 				</div>
 				<div class="form-div horizontal-centre">
-					<div class="search-link">
-						<a ng-click='ctrl.goToSearch()'><img class="search-link-img" src="../../assets/img/search-link.png"></a>
-					</div>
+
 					<img class="default-pic horizontal-centre" src="../../assets/img/default-link.png">
 					<fieldset ng-disabled='isDisabled' id='myField' class='myField'>
-					<form id='add-form' enctype="multipart/form-data">
-						<ul class="form-ul horizontal-centre">
-							<li id="file-btn-li">
+					<form class='add-form' id='add-form' enctype="multipart/form-data">
+						
+						
 								<input onchange='angular.element(this).scope().imgPreview()' id='file' upload-directive ='ctrl.file' type='file' name='pic' class='mobile-input-file embossedBorder' placeholder="browse">
-							</li>
-						</ul>
-						<ul class="name-sex-ul form-ul horizontal-centre">
-							<li id='name-txt-bx'>
-								<input type="name" name="name" class="mobile-input-name-txtbx embossedBorder" ng-model='ctrl.name' placeholder="name">
-							</li>
-							<li id="sex-li">
+						
+						
+								<input type="name" id='name-input' name="name" class="name-input embossedBorder" ng-model='ctrl.name' placeholder="name">
+							
+							
 								<select ng-model='ctrl.sex' id="sex-select" class='embossedBorder'>
 									<option>Female</option>
 									<option>Male</option>
 									<option>Other</option>
 								</select>
-							</li>
-						</ul>
-						<ul class="form-ul horizontal-centre">
-							<li>
+
+						
+
 								<input ng-model='ctrl.addressOne' type="text" name="address 1" class="mobile-add-input embossedBorder" placeholder="address 1">
-							</li>
-							<li>
+
 								<input ng-model='ctrl.addressTwo' type="text" name="address 2" class="mobile-add-input embossedBorder" placeholder="address 2">
-							</li>
-						</ul>
-						<ul class="city-prov-ul">
-							<li id='city-li'>
-								<input ng-model='ctrl.city' type="text" name="city" class="embossedBorder" placeholder="city">
-							</li>
-							<li>
-								<select class="embossedBorder" ng-model='ctrl.province'>
+
+
+								<input ng-model='ctrl.city' id='city-input' type="text" name="city" class="embossedBorder" placeholder="city">
+
+								<select id='city-select' class=" embossedBorder" ng-model='ctrl.province'>
 									<option>AB</option>
 									<option>BC</option>
 									<option>MN</option>
@@ -69,24 +64,20 @@
 									<option>SK</option>
 									<option>YK</option>
 								</select>
-							</li>
-						</ul>
-						<ul class="form-ul horizontal-centre">
-							<li>
+
+	
 								<textarea ng-model='ctrl.notes' placeholder="notes" class="add-text-area embossedBorder"></textarea>
-							</li>
-							<li>
+	
 								<textarea ng-model='ctrl.certifications' placeholder="certifications" class="add-text-area embossedBorder"></textarea>
-							</li>
-							<li>
+
 								<textarea ng-model='ctrl.payInfo' placeholder="pay information" class="add-text-area embossedBorder"></textarea>
-							</li>
-						</ul>
-						<ul class="form2-ul">
-							<li class="form-button-li">
-								<button ng-click='ctrl.add()' class="form-button">Add</button>
-							</li>
-						</ul>
+		
+								<ui class='btn-ul'>
+									<li>
+										<button ng-click='ctrl.add()' class="form-button">Add</button>
+										</li>
+										</ui>
+
 					</form>
 					</fieldset>
 				</div> 

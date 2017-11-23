@@ -46,7 +46,8 @@
                <li class="container-li">
                   <div id='email-astros-div' class="collapse in">
                      <div class="email-list-title">
-                        <a class="collapse-link" data-toggle='collapse' data-target='#email-astros-div, #email-list-div' href="#email-astros-div" aria-expanded='false' aria-controls='email-astors-div'>Who am I emailing?</a> 	
+                        <h4 class="subsection-title">Who am I emailing</h4>
+                        <!-- <a class="collapse-link" data-toggle='collapse' data-target='#email-astros-div' href="#email-astros-div">Who am I emailing?</a> --> 	
                      </div>
                      <div id='email-list-div' class="horizontal-centre collapse in email-list-div">
                         <ul id='emailUl' class="email-ul search-ul horizontal-centre">
@@ -63,9 +64,10 @@
                <li class="container-li email-container ">
                   <div id='email-frm-container' class="email-astros-form horizontal-centre">
                      <div class="email-form-title">
-                        <a class="collapse-link" aria-expanded="false" aria-controls="email-form-div-container" data-toggle='collapse' href="#email-form-div-container" data-target='#email-form-div-container'>Email Astronauts</a>
+                        <h4 class="subsection-title">Email Astronauts</h4>
+                        <!-- <a class="collapse-link" data-toggle='collapse' href="#email-form-div-container" >Email Astronauts</a> -->
                      </div>
-                     <div id="email-form-div-container" class='email-form-div in'>
+                     <div id="email-form-div-container" class='email-form-div collapse in'>
                         <form enctype="multipart/form-data" class="email-form">
                            <ul class="search-ul horizontal-centre">
                               <li class="">
@@ -90,7 +92,7 @@
                   <div ng-repeat='($index, astronaut) in ctrl.astronauts | orderBy:selectOptions.field | filter: ctrl.search'>
 
 	                  <div class="results-container-title">
-	                     <ul class="results-ul" search-ul horizontal-centre">
+	                     <ul class="results-ul search-ul horizontal-centre">
 	                        <li class="li-centre pic-li">
 	                           <!-- <img class="profile-pic" ng-src='{{astronaut.picture.data.data}}'> -->
 	                           <buffer-to-img></buffer-to-img>
@@ -109,8 +111,6 @@
 	                     <ul class="results-ul search-ul horizontal-centre">
 	                        <li>
 	                           <h4>{{astronaut.name}}&nbsp-&nbsp{{astronaut.sex}}</h4>
-	                        </li>
-	                        <li>
 	                           <span>{{astronaut.addressOne}},&nbsp{{astronaut.addressTwo}},&nbsp{{astronaut.city}},&nbsp{{astronaut.province}} </span>
 	                        </li>
 	                     </ul>
@@ -127,10 +127,10 @@
 	                        </li>
 	                     </ul>
 	                     <ul class="results-ul search-ul horizontal-centre">
-	                        <lo>
+	                        <li>
 	                           <h4>Special Certification</h4>
 	                           <p>{{astronaut.certifications}}</p>
-	                        </lo>
+	                        </li>
 	                     </ul>
 	                  </div>
 

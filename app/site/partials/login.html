@@ -5,7 +5,7 @@ f		<div class='content'>
 					<img class="horizontal-centre" src='../../assets/img/default-logo.png'>
 				</div>
 
-				<div class="login-form-div horizontal-centre">
+				<div  class="login-form-div horizontal-centre">
 					<form name='myForm'>
 						<ul class="form-ul horizontal-centre">
 							<li>
@@ -21,7 +21,7 @@ f		<div class='content'>
 								</div>
 							</li>
 							<li>
-								<input type='email' name='myField' class='mobile-input embossedBorder' placeholder="username"
+								<input id='uname-input' type='email' name='myField' class='mobile-input embossedBorder' placeholder="username"
 									ng-model='ctrl.userName'
 									ng-focus='ctrl.removeMessage()'
 									ng-minlength='2'
@@ -31,7 +31,7 @@ f		<div class='content'>
 								<!-- {{ctrl.userName}} -->
 							</li>
 							<li>
-								<input type="password" ng-model='ctrl.password' name="password" class="mobile-input embossedBorder" placeholder="password"
+								<input id='pw-input' type="password" ng-model='ctrl.password' name="password" class="mobile-input embossedBorder" placeholder="password"
 								ng-minlength='8'
 								ng-maxlength='100'
 								>
