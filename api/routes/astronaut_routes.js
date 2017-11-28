@@ -11,7 +11,8 @@ var multer     		 = require('multer');
 var storage = multer.diskStorage({
 	
 	destination: function(req, file, callback){
-		callback(null, "/opt/bitnami/apps/blast-live/app/assets/img/");
+		// callback(null, "home/ubuntu/blast-live/app/assets/img/");
+		callback(null, "home/ubuntu/blast-live/app/site/assets/img");
 	},
 
 	filename: function(req, file, callback){
@@ -44,7 +45,7 @@ router.get('/initAstronauts', function( req,res ){
 			res.status(400)
 				.json({error:error});
 		} else{
-			console.log(astronaut);
+			// console.log(astronaut);
 			return res.send(astronaut);
 		}
 	});
@@ -91,7 +92,7 @@ router.post('/addAstronaut', upload.array('file', 12),  function(req, res){
 	// var notes 	 = req.body.notes;
 	// var pay 	 = req.body.pay;
 	// var certs 	 = req.body.certs;
-	console.log(req.files);
+	// console.log(req.files);
 	var _astronaut = astronaut({
 
 		picture:    	{data: req.files[0].path, contentType: req.files[0].mimetype},
@@ -113,7 +114,7 @@ router.post('/addAstronaut', upload.array('file', 12),  function(req, res){
 			res.status(400);
 			console.log({err:err})
 		} else{
-			console.log(_astronaut);
+			// console.log(_astronaut);
 			res.send(_astronaut);
 				// console.log('saved');
 		}

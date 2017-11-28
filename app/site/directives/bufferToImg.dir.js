@@ -18,7 +18,7 @@ angular
 
 		var pos = binary.search("blast-live");
 		binary = binary.substring(pos + 15, binary.length);
-
+		console.log(binary);
 		// console.log("bin %s", binary);
 		// scope.image = binary;
 		astronautSrv.getAstronaut(astronaut);
