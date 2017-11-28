@@ -12,7 +12,6 @@ var storage = multer.diskStorage({
 	
 	destination: function(req, file, callback){
 		// callback(null, "home/ubuntu/blast-live/app/assets/img/");
-		callback(null, "../../blast-live/app/assets/img/");
 	},
 
 	filename: function(req, file, callback){
