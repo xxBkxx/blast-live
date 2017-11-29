@@ -22,7 +22,7 @@ var auth_routes 	 = require('./routes/auth_routes');
 var user_routes 	 = require('./routes/user_routes');
 var forgot_routes    = require('./routes/forgot_routes');
 var new_password 	 = require('./routes/newpassword_routes');
-var add_route		 = require('./routes/add_routes');
+// var add_route		 = require('./routes/add_routes');
 var favicon_route	 = require('./routes/favicon_routes');
 // var not_login_regex  = /\/(?!login)/g;
 
