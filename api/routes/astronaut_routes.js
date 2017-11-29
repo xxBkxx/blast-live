@@ -12,7 +12,7 @@ var storage = multer.diskStorage({
 	
 	destination: function(req, file, callback){
 		// callback(null, "home/ubuntu/blast-live/app/assets/img/");
-		callback(null, "\\..\\..\\..\\app\\assets\\img\\");
+		callback(null, "/../../../app/assets/img");
 	},
 
 	filename: function(req, file, callback){
@@ -94,7 +94,7 @@ router.post('/addAstronaut', upload.array('file', 12),  function(req, res){
 	// var certs 	 = req.body.certs;
 	// console.log(req.files);
 	console.log('req');
-	console.log(req);
+	console.log(req.files[0].path);
 	var _astronaut = astronaut({
 
 		picture:    	{data: req.files[0].path, contentType: req.files[0].mimetype},
