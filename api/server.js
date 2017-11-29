@@ -36,7 +36,7 @@ var not_login_regex  = /\/(?!login|assets|site|css|app.js)[\w\d]{1,}(?!login)/g;
 // app.use('/choice_route', authentication);
 app.use("/", favicon_route);
 // app.use('/token', authentication);
-app.use('/', add_route);
+// app.use('/', add_route);
 app.use("/", astronaut_routes);
 app.use("/", email_routes);
 app.use("/", auth_routes);
