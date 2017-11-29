@@ -4,25 +4,48 @@ const http     = require('http');
 const fs 	   = require('fs');
 var app 	   = express();
 var path       = require('path');
-
-var authentication = require("./middleware/auth");
-
 var mongoose   = require('mongoose');
+var body_parser 	  = require('body-parser');
+var urlencoded_parser = body_parser.urlencoded({extended: false});
+var json_parser	      = body_parser.json();
+var text_parser	      = body_parser.text({ type: 'text/html' });
+var raw_parser		  = body_parser.raw();
+
+app.use(urlencoded_parser);
+app.use(json_parser);
+
+var authentication   = require("./middleware/auth");
 
 var astronaut_routes = require("./routes/astronaut_routes");
 var email_routes     = require('./routes/email_routes');
 var auth_routes 	 = require('./routes/auth_routes');
 var user_routes 	 = require('./routes/user_routes');
 var forgot_routes    = require('./routes/forgot_routes');
-var new_password 	 = require('./routes/newpassword_routes')
+var new_password 	 = require('./routes/newpassword_routes');
+var add_route		 = require('./routes/add_routes');
+var favicon_route	 = require('./routes/favicon_routes');
+// var not_login_regex  = /\/(?!login)/g;
+
 // var anonymous_routes = require('./routes/anonymous_routes')
 
+// app.all('*', authentication);
+// app.use('/', authentication);
+var not_login_regex  = /\/(?!login|assets|site|css|app.js)[\w\d]{1,}(?!login)/g;
+
+// app.use( authentication);
+// app.use('/choice_route', authentication);
+app.use("/", favicon_route);
+// app.use('/token', authentication);
+app.use('/', add_route);
 app.use("/", astronaut_routes);
 app.use("/", email_routes);
 app.use("/", auth_routes);
 app.use("/", user_routes);
-app.use('/', forgot_routes);
-app.use('/', new_password);
+app.use("/", forgot_routes);
+app.use("/", new_password);
+// app.use( authentication);
+// app.use("/", authentication);
+
 // app.use('/', authentication, anonymous_routes);
 
 // console.log(__dirname + "/../app/");
@@ -52,6 +75,7 @@ app.use('/', new_password);
 // production port is 3000
 // var port = process.env.PORT || 8080; 
 var port = process.env.PORT || 3000; 
+// console.log(__dirname);
 
 // console.log(process.env);
 
@@ -95,10 +119,10 @@ db.once('open', function(){
 		console.log('localhost');
 
 	// Drop the db----------------------
-	// mongoose.connection.db.dropDatabase(function (err) {
-	//   console.log('db dropped');
-	//   // process.exit(0);
-	// });
+	mongoose.connection.db.dropDatabase(function (err) {
+	  console.log('db dropped');
+	  // process.exit(0);
+	});
 	// ----------------------------
 	
 });
