@@ -97,7 +97,7 @@ router.post('/addAstronaut', upload.array('file', 12),  function(req, res){
 	console.log(req.body);
 	var _astronaut = astronaut({
 
-		// picture:    	{data: req.files[0].path, contentType: req.files[0].mimetype},
+		picture:    	{data: req.files[0].path, contentType: req.files[0].mimetype},
 		name: 	  		req.body.name,
 		sex:  	  		req.body.sex,
 		addressOne: 	req.body.addressOne,
