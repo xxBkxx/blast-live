@@ -522,7 +522,7 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 		margin-top: 20px;
 		background-color: rgba(0,0,0,.4);
 		/*padding-top: 20px;*/
-		padding-bottom: 0px;/* this value has to be bigger by 203px*/
+		padding-bottom: 0;/* this value has to be bigger by 203px*/
 		border-radius: 20px;
 		margin-bottom: 20px;
 		overflow: hidden;
