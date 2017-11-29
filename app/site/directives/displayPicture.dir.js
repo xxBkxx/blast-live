@@ -42,13 +42,12 @@ angular
 					binary +=  String.fromCharCode(bytes[j]);
 				}
 
-
 					console.log("binary %s", binary);
 					var pos = binary.search("blast-live");
 					binary = binary.substring(pos + 15, binary.length);
 					var assetPos = emailSrc.search("assets");
 					if(emailSrc.search(re) != -1){
-
+						// console.log(emailSrc);
 						emailSrc = emailSrc.substring(pos - 11, emailSrc.length);
 						emailSrc = emailSrc.replace(re, "\\");
 						if(emailSrc.search(spaceRe) != -1){
@@ -64,7 +63,10 @@ angular
 				var imgPosBin = binary.search("img/");
 				var imgPosEmail = emailSrc.search("img");
 
-				var imgBinStr = binary.substring(imgPosBin + 12, binary.length);
+				console.log(imgPosBin);
+				console.log(imgPosEmail);
+
+				var imgBinStr = binary.substring(imgPosBin + 7, binary.length);
 				var imgEmailStr = emailSrc.substring(imgPosEmail + 4, emailSrc.length);
 
 				console.log("bin %s", imgBinStr);
@@ -82,7 +84,7 @@ angular
 				
 			//  Check whether the pic is there or nah
 				var picIsThere = undefined;
-				var listItem = "<li><img class='email-pic' src='" + emailPic.src + "'></li><li class='li-centre'><span>"+ name + "</span></li>"
+				var listItem = "<li><img class='email-pic' src='" + emailPic.src + "'></li><li class='li-centre'><span> "+ name + "</span></li>"
 				angular.forEach(element.children().children(), function(child){
 						var className = child.className;
 						// console.log( className );
@@ -108,7 +110,7 @@ angular
 				})
 
 				if (picIsThere == false || picIsThere == undefined){
-					element.prepend("<li><span class='pic-index'>" + index + "</span><img ng-click='ctrl.removePic()' class='email-pic' src='" + emailPic.src + "'><span class='astro-name'>"+ name + "</span></li>");
+					element.prepend("<li><span class='pic-index'>" + index + "</span><img ng-click='ctrl.removePic()' class='email-pic' src='" + emailPic.src + "'><span class='astro-name'>&nbsp;"+ name + "</span></li>");
 				} else {
 					return
 				}
