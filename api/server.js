@@ -119,10 +119,10 @@ db.once('open', function(){
 		console.log('localhost');
 
 	// Drop the db----------------------
-	// mongoose.connection.db.dropDatabase(function (err) {
-	//   console.log('db dropped');
-	//   // process.exit(0);
-	// });
+	mongoose.connection.db.dropDatabase(function (err) {
+	  console.log('db dropped');
+	  // process.exit(0);
+	});
 	// ----------------------------
 	
 });
