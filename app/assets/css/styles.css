@@ -54,8 +54,14 @@ body{
 	font: normal normal normal normal 300px/25px sans-serif;
 	width: 100%;
 	text-align: center;
+}
 
+.results-container-bg p, span, label{
+	color: white;
+}
 
+.results-container-bg h4{
+	color: darkorange;
 }
 
 .load-text{
@@ -1165,11 +1171,6 @@ legend{
 	    border-radius: 10px;
 	    overflow: auto;
 	}
-	.results-container-bg p, span, label{
-		color: white;
-	}
 
-	.results-container-bg h4{
-		color: darkorange;
-	}
+
 }
