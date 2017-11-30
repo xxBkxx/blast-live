@@ -3,15 +3,25 @@
 		.module('blastApp')
 		.controller('SearchController', SearchController);
 
-		function SearchController($window,initAstronauts, $timeout, authSrv, $scope, emailSrv, $location, username, $rootScope){
-			
+		function SearchController($rootScope, $window,initAstronauts, apiSrv, $timeout, authSrv, $scope, emailSrv, $location, username, $rootScope){
+		
 			// Set the background
 			$('body').css('background-image','url("../assets/img/search-bg.jpg")');
 			$('body').css('background-position', 'center');
 
-			// Check for the login token
-			var token = localStorage.getItem('authToken');
-			authSrv.isLoggedIn(token);
+			// Authentication
+			// var token = localStorage.getItem('authToken');
+			// return $timeout (function(){
+			// 	apiSrv.request('/search_route', token , "POST" )
+			// 		.then(function(res){
+			// 			return $location.url(res.data.redirect);
+			// 		})
+			// },0);
+			// $rootScope.$on('$routeChangeStart', function(event, next){
+
+			// })
+
+
 
 			// Set Properties
 			this.astronauts 	  = initAstronauts;
@@ -21,7 +31,7 @@
 			this.emailAstros 	  = emailAstros;
 			this.searchAstronauts = searchAstronauts;
 			this.clearSearch      = clearSearch;
-			// this.removePic		  = removePic;
+			// this.removePic	  = removePic;
 			this.goToAdd		  = goToAdd;
 			this.username		  = username;
 			this.logout			  = logout;
@@ -37,7 +47,7 @@
 			// $window.onbeforeunload = authSrv.deleteTokenOnBrowserClose;
 			
 			this.selectOptions = [
-
+				{label: "",     field: "", reverse:false},
 			 	{label: "Name", field: "name", reverse:false},
 			 	{label: "Sex", field: "sex", reverse:false},
 			 	{label: "City", field: "city", reverse:false},
@@ -165,8 +175,14 @@
 					if(fileToEmail && nameToEmail){
 						// attachment.push({'name': nameToEmail, 'file': fileToEmail});	
 						// send this string to 
+						console.log(typeof fileToEmail);
+						console.log(fileToEmail.length);
+						var fileNameType = formData.get('fileName');
+						// Object filePath_astroName = fileToEmail + "|" + nameToEmail;
+						var filePath_astroName = [fileToEmail + "|" + nameToEmail];
 
-						formData.append('fileName', fileToEmail + "|" + nameToEmail);
+						console.log(filePath_astroName);
+						formData.append('fileName', filePath_astroName);
 						fileToEmail = '';
 						nameToEmail = '';
 
@@ -179,6 +195,7 @@
 				});
 				// console.log(attachment[0]);
 				// formData.append('attachment', attachment);
+				console.log(formData.get('fileName'));
 				emailSrv.sendMail(formData);
 
 					$( '.load-text' )

@@ -109,9 +109,16 @@
 	                  </div>
 	                  <div id="search-results{{$index}}" class="horizontal-centre search-results-div collapse in">
 	                     <ul class="results-ul search-ul horizontal-centre">
+                           <li>
+                              <h4>In the system?</h4>
+                              <span>{{astronaut.insystem}}</span>
+                           </li>
+                           </ul>
+                           <ul class="results-ul search-ul horizontal-centre" >
 	                        <li>
+                           
 	                           <h4>{{astronaut.name}}&nbsp-&nbsp{{astronaut.sex}}</h4>
-	                           <span>{{astronaut.addressOne}},&nbsp{{astronaut.addressTwo}},&nbsp{{astronaut.city}},&nbsp{{astronaut.province}} </span>
+	                           <span>{{astronaut.addressOne}},&nbsp{{astronaut.city}},&nbsp{{astronaut.province}} </span>
 	                        </li>
 	                     </ul>
 	                     <ul class="results-ul search-ul horizontal-centre">

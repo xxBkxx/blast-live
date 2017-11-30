@@ -4,10 +4,10 @@ var Schema 			  = mongoose.Schema;
 var astronautSchema   = new Schema({
 
 	picture: 		{data: Buffer, contentType: String},
+	insystem:       String,
 	name:           String,
 	sex:      		String,
 	addressOne:   	String,
-	addressTwo:     String,
 	city:           String,
 	province: 	    String,
 	notes:          String,

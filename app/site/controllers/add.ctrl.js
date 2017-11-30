@@ -4,7 +4,7 @@
 		.module('blastApp')
 		.controller('AddController', AddController);
 
-		function AddController(apiSrv, AUTH_EVENTS, $location, $window, username, authSrv, $scope){
+		function AddController($timeout, $rootScope, apiSrv, AUTH_EVENTS, $location, $window, username, authSrv, $scope){
 
 			this.add         = add;
 			this.goToSearch  = goToSearch;
@@ -15,12 +15,31 @@
 			this.toLoginPage = toLoginPage;
 			// this.deleteTokenOnBrowserClose = deleteTokenOnBrowserClose;
 
-			$('body').css('background-image','url("../assets/img/add-bg.jpg")');
+			// $('body').css('background-image','url("../assets/img/add-bg.jpg")');
 			$('body').css('overflow', 'initial')
 
+			// $rootScope.$on("httpResponseNoToken", function(event,args){
+			// 	console.log("httpResponseNoToken->directive");
+			// })
 
-			// Check for the login token
+			// Token Authentication
 			var token = localStorage.getItem('authToken');
+
+			// authenticated the route
+			// authSrv.authRoute('/add_route')
+	
+				// .then(function(res){
+				// 	return console.log(res);
+				// })
+
+			// return $timeout (function(){
+			// 	apiSrv.request('/add_route', token , "POST" )
+			// 		.then(function(res){
+			// 			// return $location.url(res.data.redirect);
+			// 			return console.log("res");
+			// 		})
+			// },0);
+
 			// console.log(token);
 			// authSrv.isLoggedIn(token);
 
@@ -69,10 +88,13 @@
 				var formData = new FormData();
 
 				formData.append('file', this.file);
+				formData.append('insystem', this.insystem);
+				console.log(this.insystem);
+				// formData.append('outsystem', this.outsystem);
 				formData.append('name', this.name);
 				formData.append('sex', this.sex);
 				formData.append('addressOne', this.addressOne);
-				formData.append('addressTwo', this.addressTwo);
+				// formData.append('addressTwo', this.addressTwo);
 				formData.append('city', this.city);
 				formData.append('province', this.province);
 				formData.append('notes', this.notes);

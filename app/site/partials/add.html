@@ -28,12 +28,17 @@
 					<fieldset ng-disabled='isDisabled' id='myField' class='myField'>
 					<form class='add-form' id='add-form' enctype="multipart/form-data">
 						
-						
+								<div class="form-radio">
+									<legend>In the system?</legend>
+									<input type="radio" name="insystem" id="insystem1" class="insystem" value="Yes" ng-model='ctrl.insystem'>
+									<label for='insystem1'  >Yes</label>
+									<input type="radio" name="insystem" id='insystem2' class="insystem" value="No" ng-model='ctrl.insystem'>
+									<label for="insystem2" >No</label>
+								</div>
+
 								<input onchange='angular.element(this).scope().imgPreview()' id='file' upload-directive ='ctrl.file' type='file' name='pic' class='mobile-input-file embossedBorder' placeholder="browse">
 						
-						
 								<input type="name" id='name-input' name="name" class="name-input embossedBorder" ng-model='ctrl.name' placeholder="name">
-							
 							
 								<select ng-model='ctrl.sex' id="sex-select" class='embossedBorder'>
 									<option>Female</option>
@@ -43,10 +48,7 @@
 
 						
 
-								<input ng-model='ctrl.addressOne' type="text" name="address 1" class="mobile-add-input embossedBorder" placeholder="address 1">
-
-								<input ng-model='ctrl.addressTwo' type="text" name="address 2" class="mobile-add-input embossedBorder" placeholder="address 2">
-
+								<input ng-model='ctrl.addressOne' type="text" name="address 1" class="mobile-add-input embossedBorder" placeholder="address">
 
 								<input ng-model='ctrl.city' id='city-input' type="text" name="city" class="embossedBorder" placeholder="city">
 

@@ -63,7 +63,8 @@ body{
 }
 
 button{
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.1);
+
 	border: 0;
 }
 
@@ -123,8 +124,18 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 
 }
 
+legend{
+	color:darkorange;
+}
+
+
 .input-errors{
 	color: yellow;
+}
+
+#insystem1, #insystem2{
+	width: 13px;
+	height: auto;
 }
 
 @media(min-width: 320px) and (max-width: 768px){
@@ -221,6 +232,11 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	.form2-ul li:last-child{
 		/*float: right;*/
 		padding: 0 14px 20px 200px;
+	}
+
+	.form-radio{
+		text-align: left;
+		margin-left: 30px;
 	}
 
 	.form-div{
@@ -755,6 +771,7 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	    border: none;
 	}
 
+
 	.form-ul{
 		width: 400px;
 		/*text-align: center;*/
@@ -873,6 +890,12 @@ input::placeholder, textarea::placeholder, select { /* Chrome/Opera/Safari */
 	.file-btn-li input{
 
 	}
+
+	.form-radio{
+		text-align: left;
+		margin-left: 40px;
+	}
+
 	.form-ul textarea{
 		padding-top: 10px;
 		width: 380px;
