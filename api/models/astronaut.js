@@ -6,13 +6,15 @@ var astronautSchema   = new Schema({
 	picture: 		{data: Buffer, contentType: String},
 	insystem:       String,
 	name:           String,
+	email: 			String,
+	phone: 			String,
 	sex:      		String,
 	addressOne:   	String,
 	city:           String,
 	province: 	    String,
 	notes:          String,
 	certifications: String,
-	payInfo:        String,
+	// payInfo:        String,
 	created:        {type: Date, default: Date.now}
 
 });

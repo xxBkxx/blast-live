@@ -92,6 +92,8 @@
 				console.log(this.insystem);
 				// formData.append('outsystem', this.outsystem);
 				formData.append('name', this.name);
+				formData.append('email', this.email);
+				formData.append('phone', this.phone);
 				formData.append('sex', this.sex);
 				formData.append('addressOne', this.addressOne);
 				// formData.append('addressTwo', this.addressTwo);
@@ -99,7 +101,7 @@
 				formData.append('province', this.province);
 				formData.append('notes', this.notes);
 				formData.append('certifications', this.certifications);
-				formData.append('payInfo', this.payInfo);
+				// formData.append('payInfo', this.payInfo);
 
 				// console.log(this.name);
 

@@ -100,13 +100,15 @@ router.post('/addAstronaut', upload.array('file', 12),  function(req, res){
 		picture:    	{data: req.files[0].path, contentType: req.files[0].mimetype},
 		insystem:       req.body.insystem, 
 		name: 	  		req.body.name,
-		sex:  	  		req.body.sex,
+		email: 			req.body.email,
+		phone: 			req.body.phone,
+ 		sex:  	  		req.body.sex,
 		addressOne: 	req.body.addressOne,
 		// addressTwo: 	req.body.addressTwo,
 		city: 	  		req.body.city,
 		province: 		req.body.province,
 		notes:    		req.body.notes,
-		payInfo:      	req.body.payInfo,
+		// payInfo:      	req.body.payInfo,
 		certifications: req.body.certifications
 	})
 

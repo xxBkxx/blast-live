@@ -98,10 +98,11 @@
 	                           <buffer-to-img></buffer-to-img>
 	                        </li>
 	                        <li class="less-link-li result-li">
-	                           <a ng-click='ctrl.lessMaie()' class="collapse-link" aria-expanded="false" aria-controls="search-results{{$index}}" data-target='#search-results{{$index}}' data-toggle='collapse'>Less</a><label>
+	                           <a ng-click='ctrl.lessMaie()' class="collapse-link" aria-expanded="false" aria-controls="search-results{{$index}}" data-target='#search-results{{$index}}' data-toggle='collapse'>Less</a> | <label>
 	                          <!--  <button ng-click="displayPicture()"></button> -->
-	                           <input class="email-chkbx" type="checkbox" ng-model="ctrl.checkBoxes[$index].value" ng-true-value='"display"' ng-false-value='"remove"' ng-change="displayPicture($index, ctrl.checkBoxes[$index].value)">Email{{}}
+	                           <input class="email-chkbx" type="checkbox" ng-model="ctrl.checkBoxes[$index].value" ng-true-value='"display"' ng-false-value='"remove"' ng-change="displayPicture($index, ctrl.checkBoxes[$index].value)">Email |
 	                           </label>
+                              <a ng-click='ctrl.update()' class="collapse-link">Update</a>
 	                        </li>
 	                        <li class="result-li">
 	                        </li>
@@ -109,16 +110,23 @@
 	                  </div>
 	                  <div id="search-results{{$index}}" class="horizontal-centre search-results-div collapse in">
 	                     <ul class="results-ul search-ul horizontal-centre">
+  <!--                          <li>
+                              <h4>$index</h4>
+                              <span>{{$index}}</span>
                            <li>
+                              <h4>Object ID</h4>
+                              <span>{{astronaut._id}}</span>
+                           </li> -->
+<!--                            <li>
                               <h4>In the system?</h4>
                               <span>{{astronaut.insystem}}</span>
-                           </li>
+                           </li> -->
                            </ul>
                            <ul class="results-ul search-ul horizontal-centre" >
 	                        <li>
                            
 	                           <h4>{{astronaut.name}}&nbsp-&nbsp{{astronaut.sex}}</h4>
-	                           <span>{{astronaut.addressOne}},&nbsp{{astronaut.city}},&nbsp{{astronaut.province}} </span>
+                              <p>{{astronaut.addressOne}},&nbsp{{astronaut.city}},&nbsp{{astronaut.province}}</p>
 	                        </li>
 	                     </ul>
 	                     <ul class="results-ul search-ul horizontal-centre">
@@ -127,12 +135,12 @@
 	                           <p>{{astronaut.notes}}</p>
 	                        </li>
 	                     </ul>
-	                     <ul class="results-ul search-ul horizontal-centre">
+<!-- 	                     <ul class="results-ul search-ul horizontal-centre">
 	                        <li>
 	                           <h4>Pay Info</h4>
 	                           <p>{{astronaut.payInfo}}</p>
 	                        </li>
-	                     </ul>
+	                     </ul> -->
 	                     <ul class="results-ul search-ul horizontal-centre">
 	                        <li>
 	                           <h4>Special Certification</h4>

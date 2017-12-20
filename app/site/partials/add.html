@@ -38,7 +38,7 @@
 
 								<input onchange='angular.element(this).scope().imgPreview()' id='file' upload-directive ='ctrl.file' type='file' name='pic' class='mobile-input-file embossedBorder' placeholder="browse">
 						
-								<input type="name" id='name-input' name="name" class="name-input embossedBorder" ng-model='ctrl.name' placeholder="name">
+								<input type="name" id='name-input' name="name" class="name-input embossedBorder" ng-model='ctrl.name' placeholder="Full Name">
 							
 								<select ng-model='ctrl.sex' id="sex-select" class='embossedBorder'>
 									<option>Female</option>
@@ -46,11 +46,13 @@
 									<option>Other</option>
 								</select>
 
-						
+								<input type="email" id='email-input' name="email" class="mobile-add-input embossedBorder" ng-model='ctrl.email' placeholder="Email">
 
-								<input ng-model='ctrl.addressOne' type="text" name="address 1" class="mobile-add-input embossedBorder" placeholder="address">
+								<input type="phone" id='phone-input' name="phone" class="mobile-add-input embossedBorder" ng-model='ctrl.phone' placeholder="Phone">
 
-								<input ng-model='ctrl.city' id='city-input' type="text" name="city" class="embossedBorder" placeholder="city">
+								<input ng-model='ctrl.addressOne' type="text" name="address 1" class="mobile-add-input embossedBorder" placeholder="Address">
+
+								<input ng-model='ctrl.city' id='city-input' type="text" name="city" class="embossedBorder" placeholder="City">
 
 								<select id='city-select' class=" embossedBorder" ng-model='ctrl.province'>
 									<option>AB</option>
@@ -68,11 +70,11 @@
 								</select>
 
 	
-								<textarea ng-model='ctrl.notes' placeholder="notes" class="add-text-area embossedBorder"></textarea>
+								<textarea ng-model='ctrl.notes' placeholder="Notes" class="add-text-area embossedBorder"></textarea>
 	
-								<textarea ng-model='ctrl.certifications' placeholder="certifications" class="add-text-area embossedBorder"></textarea>
+								<textarea ng-model='ctrl.certifications' placeholder="Certifications" class="add-text-area embossedBorder"></textarea>
 
-								<textarea ng-model='ctrl.payInfo' placeholder="pay information" class="add-text-area embossedBorder"></textarea>
+<!-- 								<textarea ng-model='ctrl.payInfo' placeholder="pay information" class="add-text-area embossedBorder"></textarea> -->
 		
 								<ui class='btn-ul'>
 									<li>
