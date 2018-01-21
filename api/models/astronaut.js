@@ -14,6 +14,7 @@ var astronautSchema   = new Schema({
 	province: 	    String,
 	notes:          String,
 	certifications: String,
+	index: 			String,
 	// payInfo:        String,
 	created:        {type: Date, default: Date.now}
 

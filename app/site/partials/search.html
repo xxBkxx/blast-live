@@ -41,6 +41,66 @@
             </form>
          </div>
          <div>
+            <!--   edit astros   -->
+          <div class="update-container">
+            <div class="update-div horizontal-centre">
+
+               <display-update-picture></display-update-picture>
+               <img class="update-default-pic horizontal-centre" src="../../assets/img/default-link.png">
+               <fieldset ng-disabled='isDisabled' id='myField' class='myField'>
+               <form name='addForm' class='update-form' id='add-form' enctype="multipart/form-data">
+                  
+                        <input addForm.name.$dirty  type="name" id='update-name-input' name="name" class="update-form-input embossedBorder" ng-model='ctrl.name' placeholder="Full Name">
+                     
+                        <select ng-model='ctrl.sex' id="update-sex-select" class='update-select embossedBorder'>
+                           <option>Female</option>
+                           <option>Male</option>
+                           <option>Other</option>
+                        </select>
+
+                        <input type="email" id='email-input' name="email" class="update-single-input embossedBorder" ng-model='ctrl.email' placeholder="Email">
+
+                        <input type="phone" id='phone-input' name="phone" class="update-single-input embossedBorder" ng-model='ctrl.phone' placeholder="Phone">
+
+                        <input ng-model='ctrl.addressOne' id='address-input' type="text" name="address 1" class="update-single-input embossedBorder" placeholder="Address">
+
+                        <input ng-model='ctrl.city' id='update-city-input' type="text" name="city" class="update-form-input embossedBorder" placeholder="City">
+
+                        <select id='update-city-select' class="update-select embossedBorder" ng-model='ctrl.province'>
+                           <option>AB</option>
+                           <option>BC</option>
+                           <option>MN</option>
+                           <option>NB</option>
+                           <option>NF</option>
+                           <option>NS</option>
+                           <option>NV</option>
+                           <option>NWT</option>
+                           <option>ON</option>
+                           <option>PEI</option>
+                           <option>QB</option>
+                           <option>SK</option>
+                           <option>YK</option>
+                        </select>
+
+                        <textarea ng-model='ctrl.notes' id='note-txt' placeholder="Notes" class="update-text-area embossedBorder"></textarea>
+   
+                        <textarea ng-model='ctrl.certifications' id='cert-txt' placeholder="Certifications" class="update-text-area embossedBorder"></textarea> {{ctrl.certifications}}
+
+<!--                       <textarea ng-model='ctrl.payInfo' placeholder="pay information" class="add-text-area embossedBorder"></textarea> -->
+
+                        <input ng-model='ctrl.id' type="hidden" ng-value='id' name="id" id='id-input'>
+
+                        <input ng-model='ctrl.index' type='hidden' ng-value='index' id='index-input' name='index'>
+
+                        <ui class='btn-ul'>
+                           <li>
+                              <button ng-click='ctrl.updateAstronaut($index)' class="form-button">Add</button>
+                              </li>
+                              </ui>
+               </form>
+               </fieldset>
+            </div> 
+          </div>
             <!-- email divs -->
             <ul class="email-forms-ul">
                <li class="container-li">
@@ -92,17 +152,20 @@
                   <div ng-repeat='($index, astronaut) in ctrl.astronauts | orderBy:selectOptions.field | filter: ctrl.search'>
 
 	                  <div class="results-container-title">
-	                     <ul class="results-ul search-ul horizontal-centre">
+	                     <ul class="check-ul search-ul horizontal-centre">
 	                        <li class="li-centre pic-li">
 	                           <!-- <img class="profile-pic" ng-src='{{astronaut.picture.data.data}}'> -->
 	                           <buffer-to-img></buffer-to-img>
 	                        </li>
 	                        <li class="less-link-li result-li">
-	                           <a ng-click='ctrl.lessMaie()' class="collapse-link" aria-expanded="false" aria-controls="search-results{{$index}}" data-target='#search-results{{$index}}' data-toggle='collapse'>Less</a> | <label>
+	                           <a ng-click='ctrl.lessMaie()' class="collapse-link" aria-expanded="false" aria-controls="search-results{{$index}}" data-target='#search-results{{$index}}' data-toggle='collapse'>Less</a><label> |
 	                          <!--  <button ng-click="displayPicture()"></button> -->
-	                           <input class="email-chkbx" type="checkbox" ng-model="ctrl.checkBoxes[$index].value" ng-true-value='"display"' ng-false-value='"remove"' ng-change="displayPicture($index, ctrl.checkBoxes[$index].value)">Email |
+                              <label>
+                                 <input class='update-chkbx' type='checkbox' ng-model="ctrl.checkBoxes[$index].value" ng-true-value='"displayUpdatePic"' ng-false-value='"removeUpdatePic"' ng-change="displayUpdatePicture($index)"> Update |
+                              </label>
+	                           <input class="email-chkbx" type="checkbox" ng-model="ctrl.checkBoxes[$index].value" ng-true-value='"display"' ng-false-value='"remove"' ng-change="displayPicture($index, ctrl.checkBoxes[$index].value)">Email 
 	                           </label>
-                              <a ng-click='ctrl.update()' class="collapse-link">Update</a>
+                              <!-- <a ng-click='ctrl.update()' class="collapse-link">Update</a> -->
 	                        </li>
 	                        <li class="result-li">
 	                        </li>
@@ -126,6 +189,8 @@
 	                        <li>
                            
 	                           <h4>{{astronaut.name}}&nbsp-&nbsp{{astronaut.sex}}</h4>
+                              <p>{{astronaut.email}}</p>
+                              <p>{{astronaut.phone}}</p>
                               <p>{{astronaut.addressOne}},&nbsp{{astronaut.city}},&nbsp{{astronaut.province}}</p>
 	                        </li>
 	                     </ul>

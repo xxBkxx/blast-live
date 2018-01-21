@@ -93,8 +93,8 @@ router.post('/addAstronaut', upload.array('file', 12),  function(req, res){
 	// var pay 	 = req.body.pay;
 	// var certs 	 = req.body.certs;
 	// console.log(req.files);
-	console.log(__dirname);
-	console.log(req.body);
+	// console.log(__dirname);
+	// console.log(req.body);
 	var _astronaut = astronaut({
 
 		picture:    	{data: req.files[0].path, contentType: req.files[0].mimetype},
@@ -125,6 +125,130 @@ router.post('/addAstronaut', upload.array('file', 12),  function(req, res){
 		}
 	})
 
+})
+
+router.post('/updateAstronaut', upload.array('file', 12), function(req, res){
+	// console.log(req.body);
+	obj = req.body;
+	console.log(req.body);
+	// console.log(Object.prototype.entries(obj));
+	var objArray= [];
+	// for ( var key in obj){
+
+	// 	if (obj[key] === "undefined"){
+	// 		// console.log(obj[key]);
+	// 		// obj[key] = 0;
+	// 		// console.log(obj[key]);
+	// 		delete obj[key];
+	// 	} 
+	// }
+		// console.log(obj["email"]);
+
+		// get the old astronaut to compare to the new one
+		astronaut.find({'_id':obj['id']}, function(err, _previousAstronaut){
+			var oldKeyArray = []; 
+			if (err){
+				return console.log(err)
+			} else {
+				// console.log(_previousAstronaut[0]);
+				var oldName = _previousAstronaut[0].name;
+				var oldEmail = _previousAstronaut[0].email;
+				// for (var oldKey in _previousAstronaut[0]){
+				// 	console.log(oldKey);
+				// 	oldKeyArray.push(oldKey);
+				// }
+				// console.log(oldKeyArray);			
+			}
+		})
+		astronaut.findOneAndUpdate(
+			{"_id": obj["id"]}, 
+			
+			{$set: 
+				
+				{"name": 		   obj["name"], 
+				"insystem": 	   obj["insystem"],
+				"email": 		   obj["email"],
+				"phone": 		   obj["phone"],
+				"sex": 		  	   obj["sex"],
+				"addressOne": 	   obj["addressOne"],
+				"city":   		   obj["city"],
+				"province": 	   obj["province"],
+				"notes":    	   obj["notes"],
+				"certifications":  obj["certifications"],
+				'index': 		   obj['index']}
+			}, 
+			
+			{returnNewDocument:true}, 
+
+			function(err, _astronaut){
+					// {"province": obj["province"]},
+				if(err){
+					return console.log(err);
+				} else{
+					res.send(JSON.stringify(_astronaut.data));
+				}
+			});
+	
+	// // angular.forEach(astronaut, function(value, key){
+	// // 	console.log(value)
+	// 	console.log(req.body);
+	// // })		
+	// 	id = obj.id;
+	// 	// console.log(id);
+	// 	for( var key in obj ){
+	// 		// console.log(key);
+	// 		// console.log(`astronaut.${val} = ${astronaut[val]}`);
+	// 		if (obj[key] === 'undefined'){
+	// 				// console.log('undefined');
+	// 		}
+
+	// 		else if (obj[key] !== "undefined"){
+
+	// 			//var rightKey;
+	// 			// var rightKey = Object.keys(obj).filter(function(val){obj[val] === key})[1];
+	// 			var rightVal = obj[key];
+	// 			// if (key === "id" ){
+	// 			// 	return
+	// 			// }
+				
+	// 			// console.log(Object.keys(obj).find(findKeyByVal(obj, val)));
+	// 			// console.log(rightVal);
+	// 			// console.log("value %", obj.[val]);
+	// 			// console.log(${val});
+	// 			// record = astronaut.findOneAndUpdate({"_id" : id}, {obj.val})
+
+				
+	// 			key = key.trim()
+	// 			rightVal = rightVal.trim();
+	// 			console.log(key, rightVal);
+				
+	// 			astronaut.findOneAndUpdate({"_id": id}, {$set: {[key] : rightVal}}, {$returnNewDocument:true}, function(err, _astronaut){
+	// 				if(err){
+	// 					return console.log(err);
+	// 				} else{
+	// 					// console.log(_astronaut.email);
+	// 					// console.log(_astronaut);
+	// 					res.status(200);
+
+	// 					var keyVal = key+rightVal;
+
+	// 					return res.end(JSON.stringify(key));
+	// 				}
+	// 			})
+	// 		}
+	// 	}
+
+		// function findKeyByVal(astroObj, astroVal){
+		// 	return Object.keys(astroObj).find(key => astroObj[key] === astroVal);
+		// }
+
+	// array.forEach (astronaut){
+	// 		console.log(item);
+	// }
+	// for (var i = 0; i < 11: i++){
+		// console.log(Object.entries(astronaut))
+	// }
+	// console.log(Object.values(astronaut));
 })
 
 module.exports = router;

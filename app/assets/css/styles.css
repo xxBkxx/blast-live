@@ -218,7 +218,6 @@ legend{
 
 	.form-ul li{
 		/*padding: 0px 0 0px 10px;*/
-
 		display:inline;
 	}
 
@@ -423,6 +422,12 @@ legend{
 	    /*margin-bottom: 20px;*/
 	}
 
+	/*update not available on mobile*/
+
+	.update-container{
+		display: hidden;
+	}
+
 	.search-form-element{
 		width: 248px;
 		height: 40px;
@@ -617,6 +622,10 @@ legend{
 	.email-form-div{
 		overflow: auto;
 		height: 300px;
+	}
+
+	#update-sex-input{
+		width: 280px;
 	}
 	.search-results-div{
 			overflow: auto;
@@ -834,7 +843,65 @@ legend{
 		border-radius: 10px;
 	}
 
-	.form-div input, select,textarea{
+	.div-form-styles{
+		height: 40px;
+		border-radius: 6px;
+		background-color: rgba(0,0,0,0.4);
+		width: 390px;
+		padding-left: 10px;
+		margin-bottom: 5px;
+		margin-top:5px;
+	}
+
+	.update-form-input{
+		width: 180px;
+		background-color: rgba(0,0,0,0.4);
+		height: 30px;
+		border-radius: 6px;
+		padding-left: 10px;
+		margin-bottom: 5px;
+		margin-top:5px;
+	}
+
+	.update-single-input{
+		width: 278px;
+		background-color: rgba(0,0,0,0.4);
+		height: 30px;
+		border-radius: 6px;
+		padding-left: 10px;
+		margin-bottom: 5px;
+		margin-top:5px;
+	}
+
+
+	.update-text-area{
+		height: 200px;
+		width: 278px;
+		background-color: rgba(0,0,0,0.4);
+		border-radius: 6px;
+		padding-left: 10px;
+		margin-bottom: 5px;
+		margin-top:5px;
+	}
+	
+
+	.update-select{
+		width: 93px;
+		background-color: rgba(0,0,0,0.4);
+		height: 30px;
+		border-radius: 6px;
+		padding-left: 10px;
+		margin-bottom: 5px;
+		margin-top:5px;
+	}
+
+	#add-form input, select, textarea{
+		/*width: 180px;*/
+	}
+
+
+
+	.form-div input > select > textarea{
 		height: 40px;
 		border-radius: 6px;
 		background-color: rgba(0,0,0,0.4);
@@ -935,6 +1002,7 @@ legend{
 		left: calc(50% - 400px);
 		top:427px;
 	}
+
 	.search-link{
 		position: fixed;
 		left:calc(50% + 250px);
@@ -971,6 +1039,8 @@ legend{
 		border-radius: 10px;
 	}
 	#search-select{
+		background-color: rgba(0,0,0,0.4);
+		color:;
 		padding-left: 10px;
 		width: 230px;
 		height: 40px;
@@ -993,6 +1063,34 @@ legend{
 	.search-ul button:hover{
 		cursor:pointer;
 	}
+
+	.update-container{
+		position: fixed;
+		width: 300px;
+		background-color: rgba(0,0,0,.4);
+		top:70px;
+		left:20px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 20px;
+		border-radius: 10px;
+	}
+
+	.update-default-pic{
+		width:200px;
+		border-radius: 10px;
+	}
+
+	.update-div{
+		height: 400px;
+		overflow: auto;
+	}
+
+	.update-input-form{
+		width: 200px;
+	}	
+
+
 	#email-astros-div{
 		/*height: 200px; */
 	    /* overflow: auto; */
@@ -1074,6 +1172,7 @@ legend{
 	}
 
 	.search-textarea{
+		background-color: rgba(0,0,0,0.4);
 		padding-left: 10px;
 		padding-top: 10px;
 		width: 250px;
@@ -1109,7 +1208,10 @@ legend{
 		text-align: center;
 		padding-bottom: 20px;
 	}
-
+	.check-ul{
+		text-align: center;
+		padding-bottom: 20px;
+	}
 	.results-ul{
 		padding-bottom: 20px;
 	}
@@ -1120,14 +1222,15 @@ legend{
 	}
 
 	.less-link-li{
-		margin-left: 131px;
+		/*margin-left: 131px;*/
 	}
 
 	.search-results-div{
-		width: 360px;
+		padding-left: 20px;
+		/*width: 360px;*/
 /*		padding-top:20px;
 		padding-bottom: 20px;*/
-		overflow: auto;
+		/*overflow: auto;*/
 	}
 
 	.email-ul li{
