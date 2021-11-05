@@ -105,10 +105,10 @@ app.use('*', function(req,res,next){
 };
 
 // live server connections
-var insecureServer = http.createServer(app).listen(3000);
+var insecureServer = http.createServer(app).listen(80);
 
 // live server connections
-var secureServer   = https.createServer(options, app).listen(8443);
+var secureServer   = https.createServer(app).listen(443);
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://blastAdmin:tmdpw0418@ec2-34-214-245-248.us-west-2.compute.amazonaws.com/blast-db');
